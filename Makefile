@@ -8,10 +8,10 @@ all: note main done
 
 note: 
 	@echo 
-	@echo FUN PROJECT
+	@echo PROJECT NAME
 	@echo 
 	@echo
-	@echo DUDE HAVE SOME FUN MAN!!!
+	@echo DOES IT WORK? DOES IT WORK? DOES IT WORK?
 	@echo
 
 main:
