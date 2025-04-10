@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-atg_scs::Spring::Spring() {
+Spring::Spring() {
     m_restLength = 1.0;
     m_ks = 0;
     m_kd = 0;
@@ -13,11 +13,11 @@ atg_scs::Spring::Spring() {
     m_body1 = m_body2 = nullptr;
 }
 
-atg_scs::Spring::~Spring() {
+Spring::~Spring() {
     /* void */
 }
 
-void atg_scs::Spring::apply(SystemState *state) {
+void Spring::apply(SystemState *state) {
     if (m_body1 == nullptr || m_body2 == nullptr) return;
 
     double x1, y1;
@@ -79,14 +79,14 @@ void atg_scs::Spring::apply(SystemState *state) {
     );
 }
 
-void atg_scs::Spring::getEnds(double *x_1, double *y_1, double *x_2, double *y_2) {
+void Spring::getEnds(double *x_1, double *y_1, double *x_2, double *y_2) {
     if (m_body1 == nullptr || m_body2 == nullptr) return;
 
     m_body1->localToWorld(m_p1_x, m_p1_y, x_1, y_1);
     m_body2->localToWorld(m_p2_x, m_p2_y, x_2, y_2);
 }
 
-double atg_scs::Spring::energy() const {
+double Spring::energy() const {
     if (m_body1 == nullptr || m_body2 == nullptr) return 0;
 
     double x1, y1;

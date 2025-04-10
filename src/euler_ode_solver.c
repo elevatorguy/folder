@@ -1,23 +1,23 @@
 #include "euler_ode_solver.h"
 
-atg_scs::EulerOdeSolver::EulerOdeSolver() {
+EulerOdeSolver::EulerOdeSolver() {
     /* void */
 }
 
-atg_scs::EulerOdeSolver::~EulerOdeSolver() {
+EulerOdeSolver::~EulerOdeSolver() {
     /* void */
 }
 
-void atg_scs::EulerOdeSolver::start(SystemState *initial, double dt) {
+void EulerOdeSolver::start(SystemState *initial, double dt) {
     OdeSolver::start(initial, dt);
 }
 
-bool atg_scs::EulerOdeSolver::step(SystemState *system) {
+bool EulerOdeSolver::step(SystemState *system) {
     system->dt = m_dt;
     return true;
 }
 
-void atg_scs::EulerOdeSolver::solve(SystemState *system) {
+void EulerOdeSolver::solve(SystemState *system) {
     system->dt = m_dt;
 
     for (int i = 0; i < system->n; ++i) {
@@ -31,6 +31,6 @@ void atg_scs::EulerOdeSolver::solve(SystemState *system) {
     }
 }
 
-void atg_scs::EulerOdeSolver::end() {
+void EulerOdeSolver::end() {
     /* void */
 }

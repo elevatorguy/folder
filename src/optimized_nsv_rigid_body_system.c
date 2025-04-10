@@ -3,13 +3,13 @@
 #include <chrono>
 #include <cmath>
 
-atg_scs::OptimizedNsvRigidBodySystem::OptimizedNsvRigidBodySystem() {
+OptimizedNsvRigidBodySystem::OptimizedNsvRigidBodySystem() {
     m_sleSolver = nullptr;
     m_biasFactor = 1.0;
     m_t = 0.0;
 }
 
-atg_scs::OptimizedNsvRigidBodySystem::~OptimizedNsvRigidBodySystem() {
+OptimizedNsvRigidBodySystem::~OptimizedNsvRigidBodySystem() {
     m_iv.J_sparse.destroy();
     m_iv.sreg0.destroy();
     m_iv.C.destroy();
@@ -30,11 +30,11 @@ atg_scs::OptimizedNsvRigidBodySystem::~OptimizedNsvRigidBodySystem() {
     m_iv.lambda.destroy();
 }
 
-void atg_scs::OptimizedNsvRigidBodySystem::initialize(SleSolver *sleSolver) {
+void OptimizedNsvRigidBodySystem::initialize(SleSolver *sleSolver) {
     m_sleSolver = sleSolver;
 }
 
-void atg_scs::OptimizedNsvRigidBodySystem::process(double dt, int steps) {
+void OptimizedNsvRigidBodySystem::process(double dt, int steps) {
     long long
         odeSolveTime = 0,
         constraintSolveTime = 0,
@@ -86,7 +86,7 @@ void atg_scs::OptimizedNsvRigidBodySystem::process(double dt, int steps) {
     m_t += dt;
 }
 
-void atg_scs::OptimizedNsvRigidBodySystem::propagateResults() {
+void OptimizedNsvRigidBodySystem::propagateResults() {
     const int n = getRigidBodyCount();
     for (int i = 0; i < n; ++i) {
         m_rigidBodies[i]->v_x = m_state.v_x[i];
@@ -113,7 +113,7 @@ void atg_scs::OptimizedNsvRigidBodySystem::propagateResults() {
     }
 }
 
-void atg_scs::OptimizedNsvRigidBodySystem::processConstraints(
+void OptimizedNsvRigidBodySystem::processConstraints(
         double dt,
         long long *evalTime,
         long long *solveTime)

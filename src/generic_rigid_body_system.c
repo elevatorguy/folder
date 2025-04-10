@@ -2,16 +2,16 @@
 
 #include <chrono>
 
-atg_scs::GenericRigidBodySystem::GenericRigidBodySystem() {
+GenericRigidBodySystem::GenericRigidBodySystem() {
     m_sleSolver = nullptr;
     m_odeSolver = nullptr;
 }
 
-atg_scs::GenericRigidBodySystem::~GenericRigidBodySystem() {
+GenericRigidBodySystem::~GenericRigidBodySystem() {
     /* void */
 }
 
-void atg_scs::GenericRigidBodySystem::initialize(
+void GenericRigidBodySystem::initialize(
         SleSolver *sleSolver,
         OdeSolver *odeSolver)
 {
@@ -21,7 +21,7 @@ void atg_scs::GenericRigidBodySystem::initialize(
     m_iv.lambda.initialize(0, 0);
 }
 
-void atg_scs::GenericRigidBodySystem::process(double dt, int steps) {
+void GenericRigidBodySystem::process(double dt, int steps) {
     long long
         odeSolveTime = 0,
         constraintSolveTime = 0,
@@ -94,7 +94,7 @@ void atg_scs::GenericRigidBodySystem::process(double dt, int steps) {
     m_frameIndex = (m_frameIndex + 1) % ProfilingSamples;
 }
 
-void atg_scs::GenericRigidBodySystem::processConstraints(
+void GenericRigidBodySystem::processConstraints(
         long long *evalTime,
         long long *solveTime)
 {

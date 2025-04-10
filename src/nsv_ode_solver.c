@@ -1,23 +1,23 @@
 #include "nsv_ode_solver.h"
 
-atg_scs::NsvOdeSolver::NsvOdeSolver() {
+NsvOdeSolver::NsvOdeSolver() {
     /* void */
 }
 
-atg_scs::NsvOdeSolver::~NsvOdeSolver() {
+NsvOdeSolver::~NsvOdeSolver() {
     /* void */
 }
 
-void atg_scs::NsvOdeSolver::start(SystemState *initial, double dt) {
+void NsvOdeSolver::start(SystemState *initial, double dt) {
     OdeSolver::start(initial, dt);
 }
 
-bool atg_scs::NsvOdeSolver::step(SystemState *system) {
+bool NsvOdeSolver::step(SystemState *system) {
     system->dt = m_dt;
     return true;
 }
 
-void atg_scs::NsvOdeSolver::solve(SystemState *system) {
+void NsvOdeSolver::solve(SystemState *system) {
     system->dt = m_dt;
 
     for (int i = 0; i < system->n; ++i) {
@@ -31,6 +31,6 @@ void atg_scs::NsvOdeSolver::solve(SystemState *system) {
     }
 }
 
-void atg_scs::NsvOdeSolver::end() {
+void NsvOdeSolver::end() {
     /* void */
 }

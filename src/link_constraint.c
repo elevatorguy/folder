@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-atg_scs::LinkConstraint::LinkConstraint() : Constraint(2, 2) {
+LinkConstraint::LinkConstraint() : Constraint(2, 2) {
     m_local_x_1 = m_local_y_1 = 0.0;
     m_local_x_2 = m_local_y_2 = 0.0;
     m_ks = 10.0;
@@ -10,11 +10,11 @@ atg_scs::LinkConstraint::LinkConstraint() : Constraint(2, 2) {
     m_maxForce = DBL_MAX;
 }
 
-atg_scs::LinkConstraint::~LinkConstraint() {
+LinkConstraint::~LinkConstraint() {
     /* void */
 }
 
-void atg_scs::LinkConstraint::calculate(
+void LinkConstraint::calculate(
         Output *output,
         SystemState *state)
 {
@@ -100,12 +100,12 @@ void atg_scs::LinkConstraint::calculate(
     output->limits[1][1] = m_maxForce;
 }
 
-void atg_scs::LinkConstraint::setLocalPosition1(double x, double y) {
+void LinkConstraint::setLocalPosition1(double x, double y) {
     m_local_x_1 = x;
     m_local_y_1 = y;
 }
 
-void atg_scs::LinkConstraint::setLocalPosition2(double x, double y) {
+void LinkConstraint::setLocalPosition2(double x, double y) {
     m_local_x_2 = x;
     m_local_y_2 = y;
 }

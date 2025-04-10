@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-atg_scs::RollingConstraint::RollingConstraint() : Constraint(2, 2) {
+RollingConstraint::RollingConstraint() : Constraint(2, 2) {
     m_local_x = m_local_y = 0.0;
     m_dx = m_dy = 0.0;
     m_radius = 0.0;
@@ -10,11 +10,11 @@ atg_scs::RollingConstraint::RollingConstraint() : Constraint(2, 2) {
     m_kd = 1.0;
 }
 
-atg_scs::RollingConstraint::~RollingConstraint() {
+RollingConstraint::~RollingConstraint() {
     /* void */
 }
 
-void atg_scs::RollingConstraint::calculate(
+void RollingConstraint::calculate(
         Output *output,
         SystemState *state)
 {

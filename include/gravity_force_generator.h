@@ -5,16 +5,14 @@
 
 #include "rigid_body.h"
 
-namespace atg_scs {
-    class GravityForceGenerator : public ForceGenerator {
-        public:
-            GravityForceGenerator();
-            virtual ~GravityForceGenerator();
+class GravityForceGenerator : public ForceGenerator {
+    public:
+        GravityForceGenerator();
+        virtual ~GravityForceGenerator();
 
-            virtual void apply(SystemState *state);
+        virtual void apply(SystemState *state);
 
-            double m_g;
-    };
-} /* namespace atg_scs */
+        double m_g;
+};
 
 #endif /* ATG_SIMPLE_2D_CONSTRAINT_SOLVER_GRAVITY_FORCE_GENERATOR_H */

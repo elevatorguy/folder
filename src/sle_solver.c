@@ -1,14 +1,14 @@
 #include "sle_solver.h"
 
-atg_scs::SleSolver::SleSolver(bool supportsLimits) {
+SleSolver::SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
-atg_scs::SleSolver::~SleSolver() {
+SleSolver::~SleSolver() {
     /* void */
 }
 
-bool atg_scs::SleSolver::solve(
+bool SleSolver::solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -18,7 +18,7 @@ bool atg_scs::SleSolver::solve(
     return false;
 }
 
-bool atg_scs::SleSolver::solveWithLimits(
+bool SleSolver::solveWithLimits(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,

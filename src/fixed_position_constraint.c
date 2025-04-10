@@ -2,28 +2,28 @@
 
 #include <cmath>
 
-atg_scs::FixedPositionConstraint::FixedPositionConstraint() : Constraint(2, 1) {
+FixedPositionConstraint::FixedPositionConstraint() : Constraint(2, 1) {
     m_local_x = m_local_y = 0.0;
     m_world_x = m_world_y = 0.0;
     m_ks = 10.0;
     m_kd = 1.0;
 }
 
-atg_scs::FixedPositionConstraint::~FixedPositionConstraint() {
+FixedPositionConstraint::~FixedPositionConstraint() {
     /* void */
 }
 
-void atg_scs::FixedPositionConstraint::setWorldPosition(double x, double y) {
+void FixedPositionConstraint::setWorldPosition(double x, double y) {
     m_world_x = x;
     m_world_y = y;
 }
 
-void atg_scs::FixedPositionConstraint::setLocalPosition(double x, double y) {
+void FixedPositionConstraint::setLocalPosition(double x, double y) {
     m_local_x = x;
     m_local_y = y;
 }
 
-void atg_scs::FixedPositionConstraint::calculate(
+void FixedPositionConstraint::calculate(
         Output *output,
         SystemState *state)
 {

@@ -2,16 +2,16 @@
 
 #include <cmath>
 
-atg_scs::RigidBody::RigidBody() {
+RigidBody::RigidBody() {
     index = -1;
     reset();
 }
 
-atg_scs::RigidBody::~RigidBody() {
+RigidBody::~RigidBody() {
     /* void */
 }
 
-double atg_scs::RigidBody::energy() const {
+double RigidBody::energy() const {
     const double speed_2 = v_x * v_x + v_y * v_y;
     const double E_k = 0.5 * m * speed_2;
     const double E_r = 0.5 * I * v_theta * v_theta;
@@ -19,7 +19,7 @@ double atg_scs::RigidBody::energy() const {
     return E_k + E_r;
 }
 
-void atg_scs::RigidBody::localToWorld(
+void RigidBody::localToWorld(
         double x,
         double y,
         double *w_x,
@@ -32,7 +32,7 @@ void atg_scs::RigidBody::localToWorld(
     *w_y = sin_theta * x + cos_theta * y + p_y;
 }
 
-void atg_scs::RigidBody::worldToLocal(
+void RigidBody::worldToLocal(
         double x,
         double y,
         double *l_x,
@@ -45,7 +45,7 @@ void atg_scs::RigidBody::worldToLocal(
     *l_y = -sin_theta * (x - p_x) + cos_theta * (y - p_y);
 }
 
-void atg_scs::RigidBody::reset() {
+void RigidBody::reset() {
     p_x = p_y = 0.0;
     v_x = v_y = 0.0;
 

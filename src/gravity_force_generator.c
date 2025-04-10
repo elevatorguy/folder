@@ -1,14 +1,14 @@
 #include "gravity_force_generator.h"
 
-atg_scs::GravityForceGenerator::GravityForceGenerator() {
+GravityForceGenerator::GravityForceGenerator() {
     m_g = 9.81;
 }
 
-atg_scs::GravityForceGenerator::~GravityForceGenerator() {
+GravityForceGenerator::~GravityForceGenerator() {
     /* void */
 }
 
-void atg_scs::GravityForceGenerator::apply(SystemState *state) {
+void GravityForceGenerator::apply(SystemState *state) {
     const int n = state->n;
 
     for (int i = 0; i < n; ++i) {

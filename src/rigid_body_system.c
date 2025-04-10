@@ -4,7 +4,7 @@
 #include <chrono>
 #include <cmath>
 
-atg_scs::RigidBodySystem::RigidBodySystem() {
+RigidBodySystem::RigidBodySystem() {
     m_odeSolveMicroseconds = new long long[ProfilingSamples];
     m_constraintSolveMicroseconds = new long long[ProfilingSamples];
     m_forceEvalMicroseconds = new long long[ProfilingSamples];
@@ -19,7 +19,7 @@ atg_scs::RigidBodySystem::RigidBodySystem() {
     }
 }
 
-atg_scs::RigidBodySystem::~RigidBodySystem() {
+RigidBodySystem::~RigidBodySystem() {
     delete[] m_odeSolveMicroseconds;
     delete[] m_constraintSolveMicroseconds;
     delete[] m_forceEvalMicroseconds;
@@ -28,55 +28,55 @@ atg_scs::RigidBodySystem::~RigidBodySystem() {
     m_state.destroy();
 }
 
-void atg_scs::RigidBodySystem::reset() {
+void RigidBodySystem::reset() {
     m_rigidBodies.clear();
     m_constraints.clear();
     m_forceGenerators.clear();
 }
 
-void atg_scs::RigidBodySystem::process(double dt, int steps) {
+void RigidBodySystem::process(double dt, int steps) {
     /* void */
 }
 
-void atg_scs::RigidBodySystem::addRigidBody(RigidBody *body) {
+void RigidBodySystem::addRigidBody(RigidBody *body) {
     m_rigidBodies.push_back(body);
     body->index = (int)m_rigidBodies.size() - 1;
 }
 
-void atg_scs::RigidBodySystem::removeRigidBody(RigidBody *body) {
+void RigidBodySystem::removeRigidBody(RigidBody *body) {
     m_rigidBodies[body->index] = m_rigidBodies.back();
     m_rigidBodies[body->index]->index = body->index;
     m_rigidBodies.resize(m_rigidBodies.size() - 1);
 }
 
-atg_scs::RigidBody *atg_scs::RigidBodySystem::getRigidBody(int i) {
+RigidBody *atg_scs::RigidBodySystem::getRigidBody(int i) {
     assert(i < m_rigidBodies.size());
     return m_rigidBodies[i];
 }
 
-void atg_scs::RigidBodySystem::addConstraint(Constraint *constraint) {
+void RigidBodySystem::addConstraint(Constraint *constraint) {
     m_constraints.push_back(constraint);
     constraint->m_index = (int)m_constraints.size() - 1;
 }
 
-void atg_scs::RigidBodySystem::removeConstraint(Constraint *constraint) {
+void RigidBodySystem::removeConstraint(Constraint *constraint) {
     m_constraints[constraint->m_index] = m_constraints.back();
     m_constraints[constraint->m_index]->m_index = constraint->m_index;
     m_constraints.resize(m_constraints.size() - 1);
 }
 
-void atg_scs::RigidBodySystem::addForceGenerator(ForceGenerator *forceGenerator) {
+void RigidBodySystem::addForceGenerator(ForceGenerator *forceGenerator) {
     m_forceGenerators.push_back(forceGenerator);
     forceGenerator->m_index = (int)m_forceGenerators.size() - 1;
 }
 
-void atg_scs::RigidBodySystem::removeForceGenerator(ForceGenerator *forceGenerator) {
+void RigidBodySystem::removeForceGenerator(ForceGenerator *forceGenerator) {
     m_forceGenerators[forceGenerator->m_index] = m_forceGenerators.back();
     m_forceGenerators[forceGenerator->m_index]->m_index = forceGenerator->m_index;
     m_forceGenerators.resize(m_forceGenerators.size() - 1);
 }
 
-int atg_scs::RigidBodySystem::getFullConstraintCount() const {
+int RigidBodySystem::getFullConstraintCount() const {
     int count = 0;
     for (Constraint *constraint: m_constraints) {
         count += constraint->getConstraintCount();
@@ -85,7 +85,7 @@ int atg_scs::RigidBodySystem::getFullConstraintCount() const {
     return count;
 }
 
-float atg_scs::RigidBodySystem::findAverage(long long *samples) {
+float RigidBodySystem::findAverage(long long *samples) {
     long long accum = 0;
     int count = 0;
     for (int i = 0; i < ProfilingSamples; ++i) {
@@ -99,23 +99,23 @@ float atg_scs::RigidBodySystem::findAverage(long long *samples) {
     else return (float)accum / count;
 }
 
-float atg_scs::RigidBodySystem::getOdeSolveMicroseconds() const {
+float RigidBodySystem::getOdeSolveMicroseconds() const {
     return findAverage(m_odeSolveMicroseconds);
 }
 
-float atg_scs::RigidBodySystem::getConstraintSolveMicroseconds() const {
+float RigidBodySystem::getConstraintSolveMicroseconds() const {
     return findAverage(m_constraintSolveMicroseconds);
 }
 
-float atg_scs::RigidBodySystem::getConstraintEvalMicroseconds() const {
+float RigidBodySystem::getConstraintEvalMicroseconds() const {
     return findAverage(m_constraintEvalMicroseconds);
 }
 
-float atg_scs::RigidBodySystem::getForceEvalMicroseconds() const {
+float RigidBodySystem::getForceEvalMicroseconds() const {
     return findAverage(m_forceEvalMicroseconds);
 }
 
-void atg_scs::RigidBodySystem::populateSystemState() {
+void RigidBodySystem::populateSystemState() {
     const int n = getRigidBodyCount();
     const int n_c = getFullConstraintCount();
     const int m = getConstraintCount();
@@ -145,7 +145,7 @@ void atg_scs::RigidBodySystem::populateSystemState() {
     }
 }
 
-void atg_scs::RigidBodySystem::populateMassMatrices(Matrix *M, Matrix *M_inv) {
+void RigidBodySystem::populateMassMatrices(Matrix *M, Matrix *M_inv) {
     const int n = getRigidBodyCount();
 
     M->initialize(1, 3 * n);
@@ -162,7 +162,7 @@ void atg_scs::RigidBodySystem::populateMassMatrices(Matrix *M, Matrix *M_inv) {
      }
 }
 
-void atg_scs::RigidBodySystem::processForces() {
+void RigidBodySystem::processForces() {
     const int n_f = getForceGeneratorCount();
     const int n = getRigidBodyCount();
 

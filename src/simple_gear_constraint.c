@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cfloat>
 
-atg_scs::SimpleGearConstraint::SimpleGearConstraint() : Constraint(1, 2) {
+SimpleGearConstraint::SimpleGearConstraint() : Constraint(1, 2) {
     m_ks = 10.0;
     m_kd = 1.0;
 
@@ -11,11 +11,11 @@ atg_scs::SimpleGearConstraint::SimpleGearConstraint() : Constraint(1, 2) {
     m_neutral = false;
 }
 
-atg_scs::SimpleGearConstraint::~SimpleGearConstraint() {
+SimpleGearConstraint::~SimpleGearConstraint() {
     /* void */
 }
 
-void atg_scs::SimpleGearConstraint::calculate(
+void SimpleGearConstraint::calculate(
     Output *output,
     SystemState *state) {
     output->C[0] = 0;

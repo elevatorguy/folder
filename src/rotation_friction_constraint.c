@@ -2,7 +2,7 @@
 
 #include <cfloat>
 
-atg_scs::RotationFrictionConstraint::RotationFrictionConstraint() : Constraint(1, 1) {
+RotationFrictionConstraint::RotationFrictionConstraint() : Constraint(1, 1) {
     m_ks = 10.0;
     m_kd = 1.0;
 
@@ -10,11 +10,11 @@ atg_scs::RotationFrictionConstraint::RotationFrictionConstraint() : Constraint(1
     m_minTorque = -DBL_MAX;
 }
 
-atg_scs::RotationFrictionConstraint::~RotationFrictionConstraint() {
+RotationFrictionConstraint::~RotationFrictionConstraint() {
     /* void */
 }
 
-void atg_scs::RotationFrictionConstraint::calculate(
+void RotationFrictionConstraint::calculate(
         Output *output,
         SystemState *state)
 {

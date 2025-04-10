@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-atg_scs::ConstantSpeedMotor::ConstantSpeedMotor() {
+ConstantSpeedMotor::ConstantSpeedMotor() {
     m_ks = 1.0f;
     m_kd = 1.0f;
     m_maxTorque = 500.0f;
@@ -12,11 +12,11 @@ atg_scs::ConstantSpeedMotor::ConstantSpeedMotor() {
     m_body1 = nullptr;
 }
 
-atg_scs::ConstantSpeedMotor::~ConstantSpeedMotor() {
+ConstantSpeedMotor::~ConstantSpeedMotor() {
     /* void */
 }
 
-void atg_scs::ConstantSpeedMotor::apply(SystemState *state) {
+void ConstantSpeedMotor::apply(SystemState *state) {
     double v1;
     double a1;
 

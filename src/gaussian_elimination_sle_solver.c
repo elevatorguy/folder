@@ -4,20 +4,20 @@
 #include <assert.h>
 #include <fstream>
 
-atg_scs::GaussianEliminationSleSolver::GaussianEliminationSleSolver()
+GaussianEliminationSleSolver::GaussianEliminationSleSolver()
     : atg_scs::SleSolver(false)
 {
     m_a.initialize(1, 1);
     m_M.initialize(1, 1);
 }
 
-atg_scs::GaussianEliminationSleSolver::~GaussianEliminationSleSolver() {
+GaussianEliminationSleSolver::~GaussianEliminationSleSolver() {
     m_a.destroy();
     m_M.destroy();
     m_reg.destroy();
 }
 
-bool atg_scs::GaussianEliminationSleSolver::solve(
+bool GaussianEliminationSleSolver::solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,

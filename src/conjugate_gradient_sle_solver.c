@@ -3,7 +3,7 @@
 #include <cmath>
 #include <assert.h>
 
-atg_scs::ConjugateGradientSleSolver::ConjugateGradientSleSolver()
+ConjugateGradientSleSolver::ConjugateGradientSleSolver()
     : atg_scs::SleSolver(false)
 {
     m_maxIterations = 1000;
@@ -11,7 +11,7 @@ atg_scs::ConjugateGradientSleSolver::ConjugateGradientSleSolver()
     m_minError = 1E-3;
 }
 
-atg_scs::ConjugateGradientSleSolver::~ConjugateGradientSleSolver() {
+ConjugateGradientSleSolver::~ConjugateGradientSleSolver() {
     m_mreg0.destroy();
     m_mreg1.destroy();
     m_Ap.destroy();
@@ -20,7 +20,7 @@ atg_scs::ConjugateGradientSleSolver::~ConjugateGradientSleSolver() {
     m_p.destroy();
 }
 
-bool atg_scs::ConjugateGradientSleSolver::solve(
+bool ConjugateGradientSleSolver::solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -75,7 +75,7 @@ succeeded:
     return true;
 }
 
-void atg_scs::ConjugateGradientSleSolver::multiply(
+void ConjugateGradientSleSolver::multiply(
     SparseMatrix<3> &J,
     Matrix &W,
     Matrix &x,
@@ -88,7 +88,7 @@ void atg_scs::ConjugateGradientSleSolver::multiply(
     J.multiply(m_mreg1, target);
 }
 
-bool atg_scs::ConjugateGradientSleSolver::sufficientlySmall(
+bool ConjugateGradientSleSolver::sufficientlySmall(
     Matrix &x,
     Matrix &target) const
 {

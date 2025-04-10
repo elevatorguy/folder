@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cfloat>
 
-atg_scs::ClutchConstraint::ClutchConstraint() : Constraint(1, 2) {
+ClutchConstraint::ClutchConstraint() : Constraint(1, 2) {
     m_ks = 10.0;
     m_kd = 1.0;
 
@@ -11,11 +11,11 @@ atg_scs::ClutchConstraint::ClutchConstraint() : Constraint(1, 2) {
     m_minTorque = -DBL_MAX;
 }
 
-atg_scs::ClutchConstraint::~ClutchConstraint() {
+ClutchConstraint::~ClutchConstraint() {
     /* void */
 }
 
-void atg_scs::ClutchConstraint::calculate(
+void ClutchConstraint::calculate(
         Output *output,
         SystemState *state)
 {

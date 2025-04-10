@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <string.h>
 
-atg_scs::Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint::Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -21,10 +21,10 @@ atg_scs::Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-atg_scs::Constraint::~Constraint() {
+Constraint::~Constraint() {
     /* void */
 }
 
-void atg_scs::Constraint::calculate(Output *output, SystemState *state) {
+void Constraint::calculate(Output *output, SystemState *state) {
     /* void */
 }
