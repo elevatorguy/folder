@@ -1,4 +1,4 @@
-#include "../include/gravity_force_generator.h"
+#include "gravity_force_generator.h"
 
 atg_scs::GravityForceGenerator::GravityForceGenerator() {
     m_g = 9.81;

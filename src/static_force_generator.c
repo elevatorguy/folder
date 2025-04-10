@@ -1,4 +1,4 @@
-#include "../include/static_force_generator.h"
+#include "static_force_generator.h"
 
 #include <cmath>
 

@@ -1,4 +1,4 @@
-#include "../include/utilities.h"
+#include "utilities.h"
 
 void atg_scs::freeArray(double *&data) {
     delete[] data;

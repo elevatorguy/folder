@@ -1,4 +1,4 @@
-#include "../include/fixed_rotation_constraint.h"
+#include "fixed_rotation_constraint.h"
 
 atg_scs::FixedRotationConstraint::FixedRotationConstraint() : Constraint(1, 1) {
     m_rotation = 0;

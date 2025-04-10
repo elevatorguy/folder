@@ -1,4 +1,4 @@
-#include "../include/optimized_nsv_rigid_body_system.h"
+#include "optimized_nsv_rigid_body_system.h"
 
 #include <chrono>
 #include <cmath>

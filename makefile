@@ -1,5 +1,5 @@
-STD :=c++0x
-CC := gcc
+STD := c17
+CC := clang
 OPTIMIZATION LEVEL := 2
 CXXFLAGS := -Wall -Wextra -pedantic-errors -std=$(STD) -O$(OPTIMIZATION-LEVEL) -pthread -D_GLIBCXX_USE_NANOSLEEP -fno-strict-aliasing
 EXAMPLEFLAGS := -std=$(STD) -pthread -D_GLIBCXX_USE_NANOSLEEP -fno-strict-aliasing
@@ -15,7 +15,38 @@ note:
 	@echo
 
 main:
-	$(CC) $(CXXFLAGS) ./src/main.c -o ./bin/file
+	$(CC) $(CXXFLAGS) ./src/clutch_constraint.c \
+	./src/fixed_position_constraint.c \
+	./src/gravity_force_generator.c \
+	./src/optimized_nsv_rigid_body_system.c \
+	./src/simple_gear_constraint.c \
+	./src/utilities.c \
+	./src/conjugate_gradient_sle_solver.c \
+	./src/fixed_rotation_constraint.c \
+	./src/line_constraint.c \
+	./src/rigid_body.c \
+	./src/sle_solver.c \
+	./src/constant_rotation_constraint.c \
+	./src/force_generator.c \
+	./src/link_constraint.c \
+	./src/rigid_body_system.c \
+	./src/sparse_matrix.c \
+	./src/constant_speed_motor.c \
+	./src/gauss_seidel_sle_solver.c \
+	./src/matrix.c \
+	./src/rk4_ode_solver.c \
+	./src/spring.c \
+	./src/constraint.c \
+	./src/gaussian_elimination_sle_solver.c \
+	./src/nsv_ode_solver.c \
+	./src/rolling_constraint.c \
+	./src/static_force_generator.c \
+	./src/euler_ode_solver.c \
+	./src/generic_rigid_body_system.c \
+	./src/ode_solver.c \
+	./src/rotation_friction_constraint.c \
+	./src/system_state.c \
+	-I include
 
 done:
 	@echo

@@ -1,4 +1,4 @@
-#include "../include/clutch_constraint.h"
+#include "clutch_constraint.h"
 
 #include <cmath>
 #include <cfloat>

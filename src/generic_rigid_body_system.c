@@ -1,4 +1,4 @@
-#include "../include/generic_rigid_body_system.h"
+#include "generic_rigid_body_system.h"
 
 #include <chrono>
 

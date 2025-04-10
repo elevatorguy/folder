@@ -1,4 +1,4 @@
-#include "../include/line_constraint.h"
+#include "line_constraint.h"
 
 #include <cmath>
 

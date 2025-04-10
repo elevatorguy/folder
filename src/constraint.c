@@ -1,4 +1,4 @@
-#include "../include/constraint.h"
+#include "constraint.h"
 
 #include <assert.h>
 #include <string.h>

@@ -1,4 +1,4 @@
-#include "../include/link_constraint.h"
+#include "link_constraint.h"
 
 #include <cmath>
 

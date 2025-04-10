@@ -1,4 +1,4 @@
-#include "../include/rolling_constraint.h"
+#include "rolling_constraint.h"
 
 #include <cmath>
 

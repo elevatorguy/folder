@@ -1,4 +1,4 @@
-#include "../include/nsv_ode_solver.h"
+#include "nsv_ode_solver.h"
 
 atg_scs::NsvOdeSolver::NsvOdeSolver() {
     /* void */

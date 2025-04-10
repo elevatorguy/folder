@@ -1,5 +1,5 @@
-#include "../include/sparse_matrix.h"
+#include "sparse_matrix.h"
 
-#include "../include/matrix.h"
+#include "matrix.h"
 
 #include <algorithm>

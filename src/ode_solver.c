@@ -1,4 +1,4 @@
-#include "../include/ode_solver.h"
+#include "ode_solver.h"
 
 atg_scs::OdeSolver::OdeSolver() {
     m_dt = 0.0;

@@ -1,4 +1,4 @@
-#include "../include/rigid_body.h"
+#include "rigid_body.h"
 
 #include <cmath>
 

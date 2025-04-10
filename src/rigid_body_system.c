@@ -1,4 +1,4 @@
-#include "../include/rigid_body_system.h"
+#include "rigid_body_system.h"
 
 #include <assert.h>
 #include <chrono>

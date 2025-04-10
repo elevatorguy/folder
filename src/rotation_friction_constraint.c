@@ -1,4 +1,4 @@
-#include "../include/rotation_friction_constraint.h"
+#include "rotation_friction_constraint.h"
 
 #include <cfloat>
 

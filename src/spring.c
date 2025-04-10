@@ -1,4 +1,4 @@
-#include "../include/spring.h"
+#include "spring.h"
 
 #include <cmath>
 

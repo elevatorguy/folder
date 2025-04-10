@@ -1,4 +1,4 @@
-#include "../include/gauss_seidel_sle_solver.h"
+#include "gauss_seidel_sle_solver.h"
 
 #include <cmath>
 #include <assert.h>

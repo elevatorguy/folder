@@ -1,4 +1,4 @@
-#include "../include/euler_ode_solver.h"
+#include "euler_ode_solver.h"
 
 atg_scs::EulerOdeSolver::EulerOdeSolver() {
     /* void */

@@ -1,4 +1,4 @@
-#include "../include/fixed_position_constraint.h"
+#include "fixed_position_constraint.h"
 
 #include <cmath>
 

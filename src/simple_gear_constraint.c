@@ -1,4 +1,4 @@
-#include "../include/simple_gear_constraint.h"
+#include "simple_gear_constraint.h"
 
 #include <cmath>
 #include <cfloat>

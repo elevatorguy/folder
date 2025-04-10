@@ -1,4 +1,4 @@
-#include "../include/sle_solver.h"
+#include "sle_solver.h"
 
 atg_scs::SleSolver::SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;

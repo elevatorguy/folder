@@ -1,4 +1,4 @@
-#include "../include/force_generator.h"
+#include "force_generator.h"
 
 atg_scs::ForceGenerator::ForceGenerator() {
     /* void */

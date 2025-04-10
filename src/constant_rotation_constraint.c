@@ -1,4 +1,4 @@
-#include "../include/constant_rotation_constraint.h"
+#include "constant_rotation_constraint.h"
 
 #include <limits>
 #include <cmath>

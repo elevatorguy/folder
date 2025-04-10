@@ -1,6 +1,6 @@
-#include "../include/system_state.h"
+#include "system_state.h"
 
-#include "../include/utilities.h"
+#include "utilities.h"
 
 #include <assert.h>
 #include <cstring>
