@@ -4,7 +4,6 @@
 struct RigidBody {
     public:
         RigidBody();
-        ~RigidBody();
 
         void localToWorld(double x, double y, double *w_x, double *w_y);
         void worldToLocal(double x, double y, double *l_x, double *l_y);

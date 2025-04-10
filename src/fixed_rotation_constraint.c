@@ -6,10 +6,6 @@ FixedRotationConstraint::FixedRotationConstraint() : Constraint(1, 1) {
     m_kd = 1.0;
 }
 
-FixedRotationConstraint::~FixedRotationConstraint() {
-    /* void */
-}
-
 void FixedRotationConstraint::calculate(Output *output, SystemState *state) {
     const int body = m_bodies[0]->index;
 

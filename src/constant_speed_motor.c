@@ -12,10 +12,6 @@ ConstantSpeedMotor::ConstantSpeedMotor() {
     m_body1 = nullptr;
 }
 
-ConstantSpeedMotor::~ConstantSpeedMotor() {
-    /* void */
-}
-
 void ConstantSpeedMotor::apply(SystemState *state) {
     double v1;
     double a1;

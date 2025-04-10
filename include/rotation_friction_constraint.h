@@ -6,7 +6,6 @@
 class RotationFrictionConstraint : public Constraint {
     public:
         RotationFrictionConstraint();
-        virtual ~RotationFrictionConstraint();
         
         void setBody(RigidBody *body) { m_bodies[0] = body; }
 

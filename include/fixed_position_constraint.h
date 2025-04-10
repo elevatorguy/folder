@@ -6,7 +6,6 @@
 class FixedPositionConstraint : public Constraint {
     public:
         FixedPositionConstraint();
-        virtual ~FixedPositionConstraint();
         
         void setBody(RigidBody *body) { m_bodies[0] = body; }
 

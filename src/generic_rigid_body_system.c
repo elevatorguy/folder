@@ -7,10 +7,6 @@ GenericRigidBodySystem::GenericRigidBodySystem() {
     m_odeSolver = nullptr;
 }
 
-GenericRigidBodySystem::~GenericRigidBodySystem() {
-    /* void */
-}
-
 void GenericRigidBodySystem::initialize(
         SleSolver *sleSolver,
         OdeSolver *odeSolver)

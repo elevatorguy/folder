@@ -8,7 +8,6 @@
 class ConstantSpeedMotor : public ForceGenerator {
     public:
         ConstantSpeedMotor();
-        virtual ~ConstantSpeedMotor();
 
         virtual void apply(SystemState *state);
 

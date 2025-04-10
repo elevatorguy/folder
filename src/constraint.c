@@ -20,11 +20,3 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
         }
     }
 }
-
-Constraint::~Constraint() {
-    /* void */
-}
-
-void Constraint::calculate(Output *output, SystemState *state) {
-    /* void */
-}

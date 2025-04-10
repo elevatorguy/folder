@@ -9,10 +9,6 @@ FixedPositionConstraint::FixedPositionConstraint() : Constraint(2, 1) {
     m_kd = 1.0;
 }
 
-FixedPositionConstraint::~FixedPositionConstraint() {
-    /* void */
-}
-
 void FixedPositionConstraint::setWorldPosition(double x, double y) {
     m_world_x = x;
     m_world_y = y;

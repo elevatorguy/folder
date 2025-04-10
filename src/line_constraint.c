@@ -10,10 +10,6 @@ LineConstraint::LineConstraint() : Constraint(1, 1) {
     m_kd = 1.0;
 }
 
-LineConstraint::~LineConstraint() {
-    /* void */
-}
-
 void LineConstraint::calculate(
         Output *output,
         SystemState *state)

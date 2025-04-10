@@ -7,7 +7,6 @@
 class SleSolver {
     public:
         SleSolver(bool supportsLimits);
-        virtual ~SleSolver();
 
         virtual bool solve(
                 SparseMatrix<3> &J,

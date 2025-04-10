@@ -34,10 +34,6 @@ void RigidBodySystem::reset() {
     m_forceGenerators.clear();
 }
 
-void RigidBodySystem::process(double dt, int steps) {
-    /* void */
-}
-
 void RigidBodySystem::addRigidBody(RigidBody *body) {
     m_rigidBodies.push_back(body);
     body->index = (int)m_rigidBodies.size() - 1;

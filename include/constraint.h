@@ -25,9 +25,7 @@ class Constraint {
 
     public:
         Constraint(int constraintCount, int bodyCount);
-        virtual ~Constraint();
 
-        virtual void calculate(Output *output, SystemState *state);
         scs_force_inline int getConstraintCount() const { return m_constraintCount; }
 
         int m_index;

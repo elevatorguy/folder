@@ -6,7 +6,6 @@
 class LinkConstraint : public Constraint {
     public:
         LinkConstraint();
-        virtual ~LinkConstraint();
         
         void setBody1(RigidBody *body) { m_bodies[0] = body; }
         void setBody2(RigidBody *body) { m_bodies[1] = body; }

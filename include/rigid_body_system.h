@@ -19,7 +19,6 @@ class RigidBodySystem {
         virtual ~RigidBodySystem();
 
         virtual void reset();
-        virtual void process(double dt, int steps = 1);
 
         void addRigidBody(RigidBody *body);
         void removeRigidBody(RigidBody *body);

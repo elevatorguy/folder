@@ -6,7 +6,6 @@
 class LineConstraint : public Constraint {
     public:
         LineConstraint();
-        virtual ~LineConstraint();
         
         void setBody(RigidBody *body) { m_bodies[0] = body; }
 

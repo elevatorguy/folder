@@ -6,12 +6,9 @@
 class OdeSolver {
     public:
         OdeSolver();
-        virtual ~OdeSolver();
 
         virtual void start(SystemState *initial, double dt);
         virtual bool step(SystemState *system);
-        virtual void solve(SystemState *system);
-        virtual void end();
 
     protected:
         double m_dt;

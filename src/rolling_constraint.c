@@ -10,10 +10,6 @@ RollingConstraint::RollingConstraint() : Constraint(2, 2) {
     m_kd = 1.0;
 }
 
-RollingConstraint::~RollingConstraint() {
-    /* void */
-}
-
 void RollingConstraint::calculate(
         Output *output,
         SystemState *state)

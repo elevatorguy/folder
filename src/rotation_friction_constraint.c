@@ -10,10 +10,6 @@ RotationFrictionConstraint::RotationFrictionConstraint() : Constraint(1, 1) {
     m_minTorque = -DBL_MAX;
 }
 
-RotationFrictionConstraint::~RotationFrictionConstraint() {
-    /* void */
-}
-
 void RotationFrictionConstraint::calculate(
         Output *output,
         SystemState *state)

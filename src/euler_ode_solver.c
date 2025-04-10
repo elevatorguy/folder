@@ -1,13 +1,5 @@
 #include "euler_ode_solver.h"
 
-EulerOdeSolver::EulerOdeSolver() {
-    /* void */
-}
-
-EulerOdeSolver::~EulerOdeSolver() {
-    /* void */
-}
-
 void EulerOdeSolver::start(SystemState *initial, double dt) {
     OdeSolver::start(initial, dt);
 }
@@ -29,8 +21,4 @@ void EulerOdeSolver::solve(SystemState *system) {
         system->v_y[i] += system->a_y[i] * m_dt;
         system->v_theta[i] += system->a_theta[i] * m_dt;
     }
-}
-
-void EulerOdeSolver::end() {
-    /* void */
 }

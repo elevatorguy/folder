@@ -4,10 +4,6 @@ SleSolver::SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
-SleSolver::~SleSolver() {
-    /* void */
-}
-
 bool SleSolver::solve(
         SparseMatrix<3> &J,
         Matrix &W,

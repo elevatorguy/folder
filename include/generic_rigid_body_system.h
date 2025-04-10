@@ -9,7 +9,6 @@
 class GenericRigidBodySystem : public RigidBodySystem {
     public:
         GenericRigidBodySystem();
-        virtual ~GenericRigidBodySystem();
 
         void initialize(SleSolver *sleSolver, OdeSolver *odeSolver);
         virtual void process(double dt, int steps = 1);

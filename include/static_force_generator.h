@@ -8,7 +8,6 @@
 class StaticForceGenerator : public ForceGenerator {
     public:
         StaticForceGenerator();
-        virtual ~StaticForceGenerator();
 
         virtual void apply(SystemState *state);
 

@@ -11,10 +11,6 @@ ClutchConstraint::ClutchConstraint() : Constraint(1, 2) {
     m_minTorque = -DBL_MAX;
 }
 
-ClutchConstraint::~ClutchConstraint() {
-    /* void */
-}
-
 void ClutchConstraint::calculate(
         Output *output,
         SystemState *state)

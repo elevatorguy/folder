@@ -8,7 +8,6 @@
 class Spring : public ForceGenerator {
     public:
         Spring();
-        virtual ~Spring();
 
         virtual void apply(SystemState *state);
         

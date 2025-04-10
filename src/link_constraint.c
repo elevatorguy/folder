@@ -10,10 +10,6 @@ LinkConstraint::LinkConstraint() : Constraint(2, 2) {
     m_maxForce = DBL_MAX;
 }
 
-LinkConstraint::~LinkConstraint() {
-    /* void */
-}
-
 void LinkConstraint::calculate(
         Output *output,
         SystemState *state)

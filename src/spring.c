@@ -13,10 +13,6 @@ Spring::Spring() {
     m_body1 = m_body2 = nullptr;
 }
 
-Spring::~Spring() {
-    /* void */
-}
-
 void Spring::apply(SystemState *state) {
     if (m_body1 == nullptr || m_body2 == nullptr) return;
 

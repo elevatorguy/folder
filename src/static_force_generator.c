@@ -9,10 +9,6 @@ StaticForceGenerator::StaticForceGenerator() {
     m_body = nullptr;
 }
 
-StaticForceGenerator::~StaticForceGenerator() {
-    /* void */
-}
-
 void StaticForceGenerator::apply(SystemState *state) {
     state->applyForce(
         m_p_x,

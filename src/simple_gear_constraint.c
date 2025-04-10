@@ -11,10 +11,6 @@ SimpleGearConstraint::SimpleGearConstraint() : Constraint(1, 2) {
     m_neutral = false;
 }
 
-SimpleGearConstraint::~SimpleGearConstraint() {
-    /* void */
-}
-
 void SimpleGearConstraint::calculate(
     Output *output,
     SystemState *state) {

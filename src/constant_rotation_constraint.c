@@ -11,10 +11,6 @@ ConstantRotationConstraint::ConstantRotationConstraint() : Constraint(1, 1) {
     m_kd = 1.0;
 }
 
-ConstantRotationConstraint::~ConstantRotationConstraint() {
-    /* void */
-}
-
 void ConstantRotationConstraint::calculate(Output *output, SystemState *state) {
     output->J[0][0] = 0;
     output->J[0][1] = 0;

@@ -6,7 +6,6 @@
 class RollingConstraint : public Constraint {
     public:
         RollingConstraint();
-        virtual ~RollingConstraint();
 
         void setBaseBody(RigidBody *body) { m_bodies[0] = body; }
         void setRollingBody(RigidBody *body) { m_bodies[1] = body; }

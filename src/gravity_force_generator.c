@@ -4,10 +4,6 @@ GravityForceGenerator::GravityForceGenerator() {
     m_g = 9.81;
 }
 
-GravityForceGenerator::~GravityForceGenerator() {
-    /* void */
-}
-
 void GravityForceGenerator::apply(SystemState *state) {
     const int n = state->n;
 

@@ -7,10 +7,6 @@ RigidBody::RigidBody() {
     reset();
 }
 
-RigidBody::~RigidBody() {
-    /* void */
-}
-
 double RigidBody::energy() const {
     const double speed_2 = v_x * v_x + v_y * v_y;
     const double E_k = 0.5 * m * speed_2;

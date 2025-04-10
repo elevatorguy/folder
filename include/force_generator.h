@@ -5,9 +5,6 @@
 
 class ForceGenerator {
     public:
-        ForceGenerator();
-        virtual ~ForceGenerator();
-
         virtual void apply(SystemState *system) = 0;
 
         int m_index;

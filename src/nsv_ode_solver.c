@@ -1,13 +1,5 @@
 #include "nsv_ode_solver.h"
 
-NsvOdeSolver::NsvOdeSolver() {
-    /* void */
-}
-
-NsvOdeSolver::~NsvOdeSolver() {
-    /* void */
-}
-
 void NsvOdeSolver::start(SystemState *initial, double dt) {
     OdeSolver::start(initial, dt);
 }
@@ -29,8 +21,4 @@ void NsvOdeSolver::solve(SystemState *system) {
         system->p_y[i] += system->v_y[i] * m_dt;
         system->theta[i] += system->v_theta[i] * m_dt;
     }
-}
-
-void NsvOdeSolver::end() {
-    /* void */
 }

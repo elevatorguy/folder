@@ -8,7 +8,6 @@
 class GravityForceGenerator : public ForceGenerator {
     public:
         GravityForceGenerator();
-        virtual ~GravityForceGenerator();
 
         virtual void apply(SystemState *state);
 

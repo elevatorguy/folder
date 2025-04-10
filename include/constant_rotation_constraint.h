@@ -6,7 +6,6 @@
 class ConstantRotationConstraint : public Constraint {
     public:
         ConstantRotationConstraint();
-        virtual ~ConstantRotationConstraint();
 
         void setBody(RigidBody *body) { m_bodies[0] = body; }
 
