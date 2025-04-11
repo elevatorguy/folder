@@ -1,8 +1,6 @@
 #ifndef ATG_SIMPLE_2D_CONSTRAINT_SOLVER_GENERIC_RIGID_BODY_SYSTEM_H
 #define ATG_SIMPLE_2D_CONSTRAINT_SOLVER_GENERIC_RIGID_BODY_SYSTEM_H
 
-#include "constraint.h"
-#include "force_generator.h"
 #include "matrix.h"
 #include "sparse_matrix.h"
 #include "system_state.h"
