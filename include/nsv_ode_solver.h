@@ -3,22 +3,15 @@
 
 #include "system_state.h"
 
-class OdeSolver {
-    public:
-        OdeSolver();
+OdeSolver();
 
-        virtual void start(SystemState *initial, double dt);
-        virtual bool step(SystemState *system);
+virtual void start(SystemState *initial, double dt);
+virtual bool step(SystemState *system);
 
-    protected:
-        double m_dt;
-};
+double m_dt;
 
-class NsvOdeSolver {
-    public:
-        virtual void start(SystemState *initial, double dt);
-        virtual bool step(SystemState *system);
-        virtual void solve(SystemState *system);
-};
+virtual void start(SystemState *initial, double dt);
+virtual bool step(SystemState *system);
+virtual void solve(SystemState *system);
 
 #endif /* ATG_SIMPLE_2D_CONSTRAINT_SOLVER_NSV_ODE_SOLVER_H */

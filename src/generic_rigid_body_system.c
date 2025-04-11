@@ -4,7 +4,7 @@
 #include <chrono>
 #include <cmath>
 
-RigidBodySystem::RigidBodySystem() {
+RigidBodySystem() {
     m_odeSolveMicroseconds = new long long[ProfilingSamples];
     m_constraintSolveMicroseconds = new long long[ProfilingSamples];
     m_forceEvalMicroseconds = new long long[ProfilingSamples];
@@ -19,7 +19,7 @@ RigidBodySystem::RigidBodySystem() {
     }
 }
 
-RigidBodySystem::~RigidBodySystem() {
+~RigidBodySystem() {
     delete[] m_odeSolveMicroseconds;
     delete[] m_constraintSolveMicroseconds;
     delete[] m_forceEvalMicroseconds;
@@ -28,51 +28,51 @@ RigidBodySystem::~RigidBodySystem() {
     m_state.destroy();
 }
 
-void RigidBodySystem::reset() {
+void reset() {
     m_rigidBodies.clear();
     m_constraints.clear();
     m_forceGenerators.clear();
 }
 
-void RigidBodySystem::addRigidBody(RigidBody *body) {
+void addRigidBody(RigidBody *body) {
     m_rigidBodies.push_back(body);
     body->index = (int)m_rigidBodies.size() - 1;
 }
 
-void RigidBodySystem::removeRigidBody(RigidBody *body) {
+void removeRigidBody(RigidBody *body) {
     m_rigidBodies[body->index] = m_rigidBodies.back();
     m_rigidBodies[body->index]->index = body->index;
     m_rigidBodies.resize(m_rigidBodies.size() - 1);
 }
 
-RigidBody *atg_scs::RigidBodySystem::getRigidBody(int i) {
+RigidBody* getRigidBody(int i) {
     assert(i < m_rigidBodies.size());
     return m_rigidBodies[i];
 }
 
-void RigidBodySystem::addConstraint(Constraint *constraint) {
+void addConstraint(Constraint *constraint) {
     m_constraints.push_back(constraint);
     constraint->m_index = (int)m_constraints.size() - 1;
 }
 
-void RigidBodySystem::removeConstraint(Constraint *constraint) {
+void removeConstraint(Constraint *constraint) {
     m_constraints[constraint->m_index] = m_constraints.back();
     m_constraints[constraint->m_index]->m_index = constraint->m_index;
     m_constraints.resize(m_constraints.size() - 1);
 }
 
-void RigidBodySystem::addForceGenerator(ForceGenerator *forceGenerator) {
+void addForceGenerator(ForceGenerator *forceGenerator) {
     m_forceGenerators.push_back(forceGenerator);
     forceGenerator->m_index = (int)m_forceGenerators.size() - 1;
 }
 
-void RigidBodySystem::removeForceGenerator(ForceGenerator *forceGenerator) {
+void removeForceGenerator(ForceGenerator *forceGenerator) {
     m_forceGenerators[forceGenerator->m_index] = m_forceGenerators.back();
     m_forceGenerators[forceGenerator->m_index]->m_index = forceGenerator->m_index;
     m_forceGenerators.resize(m_forceGenerators.size() - 1);
 }
 
-int RigidBodySystem::getFullConstraintCount() const {
+int getFullConstraintCount() const {
     int count = 0;
     for (Constraint *constraint: m_constraints) {
         count += constraint->getConstraintCount();
@@ -81,7 +81,7 @@ int RigidBodySystem::getFullConstraintCount() const {
     return count;
 }
 
-float RigidBodySystem::findAverage(long long *samples) {
+float findAverage(long long *samples) {
     long long accum = 0;
     int count = 0;
     for (int i = 0; i < ProfilingSamples; ++i) {
@@ -95,23 +95,23 @@ float RigidBodySystem::findAverage(long long *samples) {
     else return (float)accum / count;
 }
 
-float RigidBodySystem::getOdeSolveMicroseconds() const {
+float getOdeSolveMicroseconds() const {
     return findAverage(m_odeSolveMicroseconds);
 }
 
-float RigidBodySystem::getConstraintSolveMicroseconds() const {
+float getConstraintSolveMicroseconds() const {
     return findAverage(m_constraintSolveMicroseconds);
 }
 
-float RigidBodySystem::getConstraintEvalMicroseconds() const {
+float getConstraintEvalMicroseconds() const {
     return findAverage(m_constraintEvalMicroseconds);
 }
 
-float RigidBodySystem::getForceEvalMicroseconds() const {
+float getForceEvalMicroseconds() const {
     return findAverage(m_forceEvalMicroseconds);
 }
 
-void RigidBodySystem::populateSystemState() {
+void populateSystemState() {
     const int n = getRigidBodyCount();
     const int n_c = getFullConstraintCount();
     const int m = getConstraintCount();
@@ -141,7 +141,7 @@ void RigidBodySystem::populateSystemState() {
     }
 }
 
-void RigidBodySystem::populateMassMatrices(Matrix *M, Matrix *M_inv) {
+void populateMassMatrices(Matrix *M, Matrix *M_inv) {
     const int n = getRigidBodyCount();
 
     M->initialize(1, 3 * n);
@@ -158,7 +158,7 @@ void RigidBodySystem::populateMassMatrices(Matrix *M, Matrix *M_inv) {
      }
 }
 
-void RigidBodySystem::processForces() {
+void processForces() {
     const int n_f = getForceGeneratorCount();
     const int n = getRigidBodyCount();
 
@@ -173,12 +173,12 @@ void RigidBodySystem::processForces() {
     }
 }
 
-GenericRigidBodySystem::GenericRigidBodySystem() {
+GenericRigidBodySystem() {
     m_sleSolver = nullptr;
     m_odeSolver = nullptr;
 }
 
-void GenericRigidBodySystem::initialize(
+void initialize(
         SleSolver *sleSolver,
         OdeSolver *odeSolver)
 {
@@ -188,7 +188,7 @@ void GenericRigidBodySystem::initialize(
     m_iv.lambda.initialize(0, 0);
 }
 
-void GenericRigidBodySystem::process(double dt, int steps) {
+void process(double dt, int steps) {
     long long
         odeSolveTime = 0,
         constraintSolveTime = 0,
@@ -261,7 +261,7 @@ void GenericRigidBodySystem::process(double dt, int steps) {
     m_frameIndex = (m_frameIndex + 1) % ProfilingSamples;
 }
 
-void GenericRigidBodySystem::processConstraints(
+void processConstraints(
         long long *evalTime,
         long long *solveTime)
 {

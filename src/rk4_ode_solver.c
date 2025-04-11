@@ -1,27 +1,27 @@
 #include "rk4_ode_solver.h"
 
-OdeSolver::OdeSolver() {
+OdeSolver() {
     m_dt = 0.0;
 }
 
-void OdeSolver::start(SystemState *initial, double dt) {
+void start(SystemState *initial, double dt) {
     m_dt = dt;
 }
 
-bool OdeSolver::step(SystemState *system) {
+bool step(SystemState *system) {
     return true;
 }
 
-Rk4OdeSolver::Rk4OdeSolver() {
+Rk4OdeSolver() {
     m_stage = m_nextStage = RkStage::Undefined;
 }
 
-Rk4OdeSolver::~Rk4OdeSolver() {
+~Rk4OdeSolver() {
     m_initialState.destroy();
     m_accumulator.destroy();
 }
 
-void Rk4OdeSolver::start(SystemState *initial, double dt) {
+void start(SystemState *initial, double dt) {
     OdeSolver::start(initial, dt);
 
     m_initialState.copy(initial);
@@ -30,7 +30,7 @@ void Rk4OdeSolver::start(SystemState *initial, double dt) {
     m_stage = RkStage::Stage_1;
 }
 
-bool Rk4OdeSolver::step(SystemState *state) {
+bool step(SystemState *state) {
     switch (m_stage) {
         case RkStage::Stage_1:
             state->dt = 0.0;
@@ -81,7 +81,7 @@ bool Rk4OdeSolver::step(SystemState *state) {
     return m_nextStage == RkStage::Complete;
 }
 
-void Rk4OdeSolver::solve(SystemState *system) {
+void solve(SystemState *system) {
     double stageWeight = 0.0;
     switch (m_stage) {
         case RkStage::Stage_1: stageWeight = 1.0; break;
@@ -126,13 +126,13 @@ void Rk4OdeSolver::solve(SystemState *system) {
     m_stage = m_nextStage;
 }
 
-void Rk4OdeSolver::end() {
+void end() {
     OdeSolver::end();
 
     m_stage = m_nextStage = RkStage::Undefined;
 }
 
-Rk4OdeSolver::RkStage atg_scs::Rk4OdeSolver::getNextStage(RkStage stage) {
+RkStage getNextStage(RkStage stage) {
     switch (stage) {
         case RkStage::Stage_1: return RkStage::Stage_2;
         case RkStage::Stage_2: return RkStage::Stage_3;

@@ -1,6 +1,6 @@
 #include "fixed_rotation_constraint.h"
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -18,13 +18,13 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-FixedRotationConstraint::FixedRotationConstraint(1, 1) {
+FixedRotationConstraint(1, 1) {
     m_rotation = 0;
     m_ks = 10.0;
     m_kd = 1.0;
 }
 
-void FixedRotationConstraint::calculate(Output *output, SystemState *state) {
+void calculate(Output *output, SystemState *state) {
     const int body = m_bodies[0]->index;
 
     const double q3 = state->theta[body];

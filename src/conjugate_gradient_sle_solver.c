@@ -3,11 +3,11 @@
 #include <cmath>
 #include <assert.h>
 
-SleSolver::SleSolver(bool supportsLimits) {
+SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
-bool SleSolver::solve(
+bool solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -17,7 +17,7 @@ bool SleSolver::solve(
     return false;
 }
 
-bool SleSolver::solveWithLimits(
+bool solveWithLimits(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -28,14 +28,14 @@ bool SleSolver::solveWithLimits(
     return false;
 }
 
-ConjugateGradientSleSolver::ConjugateGradientSleSolver(false)
+ConjugateGradientSleSolver(false)
 {
     m_maxIterations = 1000;
     m_maxError = 1E-2;
     m_minError = 1E-3;
 }
 
-ConjugateGradientSleSolver::~ConjugateGradientSleSolver() {
+~ConjugateGradientSleSolver() {
     m_mreg0.destroy();
     m_mreg1.destroy();
     m_Ap.destroy();
@@ -44,7 +44,7 @@ ConjugateGradientSleSolver::~ConjugateGradientSleSolver() {
     m_p.destroy();
 }
 
-bool ConjugateGradientSleSolver::solve(
+bool solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -99,7 +99,7 @@ succeeded:
     return true;
 }
 
-void ConjugateGradientSleSolver::multiply(
+void multiply(
     SparseMatrix<3> &J,
     Matrix &W,
     Matrix &x,
@@ -112,7 +112,7 @@ void ConjugateGradientSleSolver::multiply(
     J.multiply(m_mreg1, target);
 }
 
-bool ConjugateGradientSleSolver::sufficientlySmall(
+bool sufficientlySmall(
     Matrix &x,
     Matrix &target) const
 {

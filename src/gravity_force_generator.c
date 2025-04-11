@@ -1,10 +1,10 @@
 #include "gravity_force_generator.h"
 
-GravityForceGenerator::GravityForceGenerator() {
+GravityForceGenerator() {
     m_g = 9.81;
 }
 
-void GravityForceGenerator::apply(SystemState *state) {
+void apply(SystemState *state) {
     const int n = state->n;
 
     for (int i = 0; i < n; ++i) {

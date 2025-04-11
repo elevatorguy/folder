@@ -2,12 +2,12 @@
 
 #include <cmath>
 
-RigidBody::RigidBody() {
+RigidBody() {
     index = -1;
     reset();
 }
 
-double RigidBody::energy() const {
+double energy() const {
     const double speed_2 = v_x * v_x + v_y * v_y;
     const double E_k = 0.5 * m * speed_2;
     const double E_r = 0.5 * I * v_theta * v_theta;
@@ -15,7 +15,7 @@ double RigidBody::energy() const {
     return E_k + E_r;
 }
 
-void RigidBody::localToWorld(
+void localToWorld(
         double x,
         double y,
         double *w_x,
@@ -28,7 +28,7 @@ void RigidBody::localToWorld(
     *w_y = sin_theta * x + cos_theta * y + p_y;
 }
 
-void RigidBody::worldToLocal(
+void worldToLocal(
         double x,
         double y,
         double *l_x,
@@ -41,7 +41,7 @@ void RigidBody::worldToLocal(
     *l_y = -sin_theta * (x - p_x) + cos_theta * (y - p_y);
 }
 
-void RigidBody::reset() {
+void reset() {
     p_x = p_y = 0.0;
     v_x = v_y = 0.0;
 
@@ -52,7 +52,7 @@ void RigidBody::reset() {
     I = 0.0;
 }
 
-Spring::Spring() {
+Spring() {
     m_restLength = 1.0;
     m_ks = 0;
     m_kd = 0;
@@ -63,7 +63,7 @@ Spring::Spring() {
     m_body1 = m_body2 = nullptr;
 }
 
-void Spring::apply(SystemState *state) {
+void apply(SystemState *state) {
     if (m_body1 == nullptr || m_body2 == nullptr) return;
 
     double x1, y1;
@@ -125,14 +125,14 @@ void Spring::apply(SystemState *state) {
     );
 }
 
-void Spring::getEnds(double *x_1, double *y_1, double *x_2, double *y_2) {
+void getEnds(double *x_1, double *y_1, double *x_2, double *y_2) {
     if (m_body1 == nullptr || m_body2 == nullptr) return;
 
     m_body1->localToWorld(m_p1_x, m_p1_y, x_1, y_1);
     m_body2->localToWorld(m_p2_x, m_p2_y, x_2, y_2);
 }
 
-double Spring::energy() const {
+double energy() const {
     if (m_body1 == nullptr || m_body2 == nullptr) return 0;
 
     double x1, y1;

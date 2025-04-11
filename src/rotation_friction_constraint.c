@@ -2,7 +2,7 @@
 
 #include <cfloat>
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -20,7 +20,7 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-RotationFrictionConstraint::RotationFrictionConstraint(1, 1) {
+RotationFrictionConstraint(1, 1) {
     m_ks = 10.0;
     m_kd = 1.0;
 
@@ -28,7 +28,7 @@ RotationFrictionConstraint::RotationFrictionConstraint(1, 1) {
     m_minTorque = -DBL_MAX;
 }
 
-void RotationFrictionConstraint::calculate(
+void calculate(
         Output *output,
         SystemState *state)
 {

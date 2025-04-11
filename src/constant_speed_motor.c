@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-ConstantSpeedMotor::ConstantSpeedMotor() {
+ConstantSpeedMotor() {
     m_ks = 1.0f;
     m_kd = 1.0f;
     m_maxTorque = 500.0f;
@@ -12,7 +12,7 @@ ConstantSpeedMotor::ConstantSpeedMotor() {
     m_body1 = nullptr;
 }
 
-void ConstantSpeedMotor::apply(SystemState *state) {
+void apply(SystemState *state) {
     double v1;
     double a1;
 

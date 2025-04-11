@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -20,7 +20,7 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-RollingConstraint::RollingConstraint(2, 2) {
+RollingConstraint(2, 2) {
     m_local_x = m_local_y = 0.0;
     m_dx = m_dy = 0.0;
     m_radius = 0.0;
@@ -28,7 +28,7 @@ RollingConstraint::RollingConstraint(2, 2) {
     m_kd = 1.0;
 }
 
-void RollingConstraint::calculate(
+void calculate(
         Output *output,
         SystemState *state)
 {

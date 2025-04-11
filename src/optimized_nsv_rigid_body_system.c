@@ -3,13 +3,13 @@
 #include <chrono>
 #include <cmath>
 
-OptimizedNsvRigidBodySystem::OptimizedNsvRigidBodySystem() {
+OptimizedNsvRigidBodySystem() {
     m_sleSolver = nullptr;
     m_biasFactor = 1.0;
     m_t = 0.0;
 }
 
-OptimizedNsvRigidBodySystem::~OptimizedNsvRigidBodySystem() {
+~OptimizedNsvRigidBodySystem() {
     m_iv.J_sparse.destroy();
     m_iv.sreg0.destroy();
     m_iv.C.destroy();
@@ -30,11 +30,11 @@ OptimizedNsvRigidBodySystem::~OptimizedNsvRigidBodySystem() {
     m_iv.lambda.destroy();
 }
 
-void OptimizedNsvRigidBodySystem::initialize(SleSolver *sleSolver) {
+void initialize(SleSolver *sleSolver) {
     m_sleSolver = sleSolver;
 }
 
-void OptimizedNsvRigidBodySystem::process(double dt, int steps) {
+void process(double dt, int steps) {
     long long
         odeSolveTime = 0,
         constraintSolveTime = 0,
@@ -86,7 +86,7 @@ void OptimizedNsvRigidBodySystem::process(double dt, int steps) {
     m_t += dt;
 }
 
-void OptimizedNsvRigidBodySystem::propagateResults() {
+void propagateResults() {
     const int n = getRigidBodyCount();
     for (int i = 0; i < n; ++i) {
         m_rigidBodies[i]->v_x = m_state.v_x[i];
@@ -113,7 +113,7 @@ void OptimizedNsvRigidBodySystem::propagateResults() {
     }
 }
 
-void OptimizedNsvRigidBodySystem::processConstraints(
+void processConstraints(
         double dt,
         long long *evalTime,
         long long *solveTime)

@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -20,7 +20,7 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-LinkConstraint::LinkConstraint(2, 2) {
+LinkConstraint(2, 2) {
     m_local_x_1 = m_local_y_1 = 0.0;
     m_local_x_2 = m_local_y_2 = 0.0;
     m_ks = 10.0;
@@ -28,7 +28,7 @@ LinkConstraint::LinkConstraint(2, 2) {
     m_maxForce = DBL_MAX;
 }
 
-void LinkConstraint::calculate(
+void calculate(
         Output *output,
         SystemState *state)
 {
@@ -114,12 +114,12 @@ void LinkConstraint::calculate(
     output->limits[1][1] = m_maxForce;
 }
 
-void LinkConstraint::setLocalPosition1(double x, double y) {
+void setLocalPosition1(double x, double y) {
     m_local_x_1 = x;
     m_local_y_1 = y;
 }
 
-void LinkConstraint::setLocalPosition2(double x, double y) {
+void setLocalPosition2(double x, double y) {
     m_local_x_2 = x;
     m_local_y_2 = y;
 }

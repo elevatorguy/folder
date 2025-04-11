@@ -1,27 +1,27 @@
 #include "nsv_ode_solver.h"
 
-OdeSolver::OdeSolver() {
+OdeSolver() {
     m_dt = 0.0;
 }
 
-void OdeSolver::start(SystemState *initial, double dt) {
+void start(SystemState *initial, double dt) {
     m_dt = dt;
 }
 
-bool OdeSolver::step(SystemState *system) {
+bool step(SystemState *system) {
     return true;
 }
 
-void NsvOdeSolver::start(SystemState *initial, double dt) {
+void start(SystemState *initial, double dt) {
     OdeSolver::start(initial, dt);
 }
 
-bool NsvOdeSolver::step(SystemState *system) {
+bool step(SystemState *system) {
     system->dt = m_dt;
     return true;
 }
 
-void NsvOdeSolver::solve(SystemState *system) {
+void solve(SystemState *system) {
     system->dt = m_dt;
 
     for (int i = 0; i < system->n; ++i) {

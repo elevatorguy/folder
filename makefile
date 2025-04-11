@@ -1,6 +1,6 @@
 STD := c17
 CC := clang
-OPTIMIZATION LEVEL := 2
+OPTIMIZATION-LEVEL := 2
 CXXFLAGS := -Wall -Wextra -pedantic-errors -std=$(STD) -O$(OPTIMIZATION-LEVEL) -pthread -D_GLIBCXX_USE_NANOSLEEP -fno-strict-aliasing -fsanitize=address,undefined,bounds,pointer-overflow
 EXAMPLEFLAGS := -std=$(STD) -pthread -D_GLIBCXX_USE_NANOSLEEP -fno-strict-aliasing -fsanitize=address,undefined,bounds,pointer-overflow,leak
 

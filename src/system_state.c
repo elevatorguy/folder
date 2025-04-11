@@ -6,7 +6,7 @@
 #include <cstring>
 #include <cmath>
 
-SystemState::SystemState() {
+SystemState() {
     indexMap = nullptr;
 
     a_theta = nullptr;
@@ -35,12 +35,12 @@ SystemState::SystemState() {
     dt = 0.0;
 }
 
-SystemState::~SystemState() {
+~SystemState() {
     assert(n == 0);
     assert(n_c == 0);
 }
 
-void SystemState::copy(const SystemState *state) {
+void copy(const SystemState *state) {
     resize(state->n, state->n_c);
 
     if (state->n == 0) {
@@ -71,7 +71,7 @@ void SystemState::copy(const SystemState *state) {
     std::memcpy((void *)r_t, (void *)state->r_t, sizeof(double) * n_c * 2);
 }
 
-void SystemState::resize(int bodyCount, int constraintCount) {
+void resize(int bodyCount, int constraintCount) {
     if (n >= bodyCount && n_c >= constraintCount) {
         return;
     }
@@ -105,7 +105,7 @@ void SystemState::resize(int bodyCount, int constraintCount) {
     r_t = new double[(size_t)n_c * 2];
 }
 
-void SystemState::destroy() {
+void destroy() {
     if (n > 0) {
         freeArray(a_theta);
         freeArray(v_theta);
@@ -137,7 +137,7 @@ void SystemState::destroy() {
     n_c = 0;
 }
 
-void SystemState::localToWorld(
+void localToWorld(
         double x,
         double y,
         double *x_t,
@@ -155,7 +155,7 @@ void SystemState::localToWorld(
     *y_t = sin_theta * x + cos_theta * y + y0;
 }
 
-void SystemState::velocityAtPoint(
+void velocityAtPoint(
         double x,
         double y,
         double *v_x,
@@ -173,7 +173,7 @@ void SystemState::velocityAtPoint(
     *v_y = this->v_y[body] + angularToLinear_y;
 }
 
-void SystemState::applyForce(
+void applyForce(
     double x_l,
     double y_l,
     double f_x,

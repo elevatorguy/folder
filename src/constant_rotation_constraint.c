@@ -3,7 +3,7 @@
 #include <limits>
 #include <cmath>
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -21,7 +21,7 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-ConstantRotationConstraint::ConstantRotationConstraint(1, 1) {
+ConstantRotationConstraint(1, 1) {
     m_rotationSpeed = 0.0;
     m_maxTorque = DBL_MAX;
     m_minTorque = -DBL_MAX;
@@ -29,7 +29,7 @@ ConstantRotationConstraint::ConstantRotationConstraint(1, 1) {
     m_kd = 1.0;
 }
 
-void ConstantRotationConstraint::calculate(Output *output, SystemState *state) {
+void calculate(Output *output, SystemState *state) {
     output->J[0][0] = 0;
     output->J[0][1] = 0;
     output->J[0][2] = 1;

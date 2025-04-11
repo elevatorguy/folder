@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -20,7 +20,7 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-LineConstraint::LineConstraint(1, 1) {
+LineConstraint(1, 1) {
     m_local_x = m_local_y = 0.0;
     m_p0_x = m_p0_y = 0.0;
     m_dx = m_dy = 0.0;
@@ -28,7 +28,7 @@ LineConstraint::LineConstraint(1, 1) {
     m_kd = 1.0;
 }
 
-void LineConstraint::calculate(
+void calculate(
         Output *output,
         SystemState *state)
 {

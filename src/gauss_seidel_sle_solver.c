@@ -3,11 +3,11 @@
 #include <cmath>
 #include <assert.h>
 
-SleSolver::SleSolver(bool supportsLimits) {
+SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
-bool SleSolver::solve(
+bool solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -17,7 +17,7 @@ bool SleSolver::solve(
     return false;
 }
 
-bool SleSolver::solveWithLimits(
+bool solveWithLimits(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -28,7 +28,7 @@ bool SleSolver::solveWithLimits(
     return false;
 }
 
-GaussSeidelSleSolver::GaussSeidelSleSolver()
+GaussSeidelSleSolver()
     : atg_scs::SleSolver(true)
 {
     m_maxIterations = 128;
@@ -37,12 +37,12 @@ GaussSeidelSleSolver::GaussSeidelSleSolver()
     m_M.initialize(1, 1);
 }
 
-GaussSeidelSleSolver::~GaussSeidelSleSolver() {
+~GaussSeidelSleSolver() {
     m_M.destroy();
     m_reg.destroy();
 }
 
-bool GaussSeidelSleSolver::solve(
+bool solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -75,7 +75,7 @@ bool GaussSeidelSleSolver::solve(
     return false;
 }
 
-bool GaussSeidelSleSolver::solveWithLimits(
+bool solveWithLimits(
     SparseMatrix<3> &J,
     Matrix &W,
     Matrix &right,
@@ -111,7 +111,7 @@ bool GaussSeidelSleSolver::solveWithLimits(
     return false;
 }
 
-double GaussSeidelSleSolver::solveIteration(
+double solveIteration(
         Matrix &left,
         Matrix &right,
         Matrix *k_next,
@@ -145,7 +145,7 @@ double GaussSeidelSleSolver::solveIteration(
     return maxDifference;
 }
 
-double GaussSeidelSleSolver::solveIteration(
+double solveIteration(
         Matrix &left,
         Matrix &right,
         Matrix &limits,

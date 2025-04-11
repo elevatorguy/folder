@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cfloat>
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -21,7 +21,7 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-ClutchConstraint::ClutchConstraint(1, 2) {
+ClutchConstraint(1, 2) {
     m_ks = 10.0;
     m_kd = 1.0;
 
@@ -29,7 +29,7 @@ ClutchConstraint::ClutchConstraint(1, 2) {
     m_minTorque = -DBL_MAX;
 }
 
-void ClutchConstraint::calculate(
+void calculate(
         Output *output,
         SystemState *state)
 {

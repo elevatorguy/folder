@@ -4,11 +4,11 @@
 #include <assert.h>
 #include <fstream>
 
-SleSolver::SleSolver(bool supportsLimits) {
+SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
-bool SleSolver::solve(
+bool solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -18,7 +18,7 @@ bool SleSolver::solve(
     return false;
 }
 
-bool SleSolver::solveWithLimits(
+bool solveWithLimits(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,
@@ -29,20 +29,20 @@ bool SleSolver::solveWithLimits(
     return false;
 }
 
-GaussianEliminationSleSolver::GaussianEliminationSleSolver()
+GaussianEliminationSleSolver()
     : atg_scs::SleSolver(false)
 {
     m_a.initialize(1, 1);
     m_M.initialize(1, 1);
 }
 
-GaussianEliminationSleSolver::~GaussianEliminationSleSolver() {
+~GaussianEliminationSleSolver() {
     m_a.destroy();
     m_M.destroy();
     m_reg.destroy();
 }
 
-bool GaussianEliminationSleSolver::solve(
+bool solve(
         SparseMatrix<3> &J,
         Matrix &W,
         Matrix &right,

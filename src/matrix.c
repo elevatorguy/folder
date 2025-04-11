@@ -3,14 +3,14 @@
 #include <algorithm>
 #include <assert.h>
 
-Matrix::Matrix() {
+Matrix() {
     m_matrix = nullptr;
     m_data = nullptr;
     m_width = m_height = 0;
     m_capacityWidth = m_capacityHeight = 0;
 }
 
-Matrix::Matrix(int width, int height, double value) {
+Matrix(int width, int height, double value) {
     m_matrix = nullptr;
     m_data = nullptr;
     m_width = m_height = 0;
@@ -19,11 +19,11 @@ Matrix::Matrix(int width, int height, double value) {
     initialize(width, height, value);
 }
 
-Matrix::~Matrix() {
+~Matrix() {
     assert(m_matrix == nullptr);
 }
 
-void Matrix::initialize(int width, int height, double value) {
+void initialize(int width, int height, double value) {
     resize(width, height);
 
     for (int i = 0; i < height; ++i) {
@@ -33,12 +33,12 @@ void Matrix::initialize(int width, int height, double value) {
     }
 }
 
-void Matrix::initialize(int width, int height) {
+void initialize(int width, int height) {
     resize(width, height);
     memset(m_data, 0, sizeof(double) * width * height);
 }
 
-void Matrix::resize(int width, int height) {
+void resize(int width, int height) {
     if (width == m_width && height == m_height) return;
     else if (width > m_capacityWidth || height > m_capacityHeight) {
         destroy();
@@ -63,7 +63,7 @@ void Matrix::resize(int width, int height) {
     }
 }
 
-void Matrix::destroy() {
+void destroy() {
     if (m_matrix == nullptr) {
         return;
     }
@@ -78,11 +78,11 @@ void Matrix::destroy() {
     m_capacityWidth = m_capacityHeight = 0;
 }
 
-void Matrix::set(const double *data) {
+void set(const double *data) {
     memcpy(m_data, data, sizeof(double) * m_width * m_height);
 }
 
-void Matrix::set(Matrix *reference) {
+void set(Matrix *reference) {
     resize(reference->m_width, reference->m_height);
 
     for (int i = 0; i < reference->m_height; ++i) {
@@ -92,7 +92,7 @@ void Matrix::set(Matrix *reference) {
     }
 }
 
-void Matrix::multiply(Matrix &b, Matrix *target) {
+void multiply(Matrix &b, Matrix *target) {
     assert(m_width == b.m_height);
 
     target->resize(b.m_width, m_height);
@@ -109,7 +109,7 @@ void Matrix::multiply(Matrix &b, Matrix *target) {
     }
 }
 
-void Matrix::componentMultiply(Matrix &b, Matrix *target) {
+void componentMultiply(Matrix &b, Matrix *target) {
     assert(m_height == b.m_height);
     assert(m_width == b.m_width);
 
@@ -122,7 +122,7 @@ void Matrix::componentMultiply(Matrix &b, Matrix *target) {
     }
 }
 
-void Matrix::transposeMultiply(Matrix &b, Matrix *target) {
+void transposeMultiply(Matrix &b, Matrix *target) {
     assert(m_height == b.m_height);
 
     target->resize(b.m_width, m_width);
@@ -139,7 +139,7 @@ void Matrix::transposeMultiply(Matrix &b, Matrix *target) {
     }
 }
 
-void Matrix::leftScale(Matrix &scale, Matrix *target) {
+void leftScale(Matrix &scale, Matrix *target) {
     assert(scale.m_width == 1);
     assert(scale.m_height == m_height);
 
@@ -152,7 +152,7 @@ void Matrix::leftScale(Matrix &scale, Matrix *target) {
     }
 }
 
-void Matrix::rightScale(Matrix &scale, Matrix *target) {
+void rightScale(Matrix &scale, Matrix *target) {
     assert(scale.m_width == 1);
     assert(scale.m_height == m_width);
 
@@ -165,7 +165,7 @@ void Matrix::rightScale(Matrix &scale, Matrix *target) {
     }
 }
 
-void Matrix::scale(double s, Matrix *target) {
+void scale(double s, Matrix *target) {
     target->resize(m_width, m_height);
 
     for (int i = 0; i < m_height; ++i) {
@@ -175,7 +175,7 @@ void Matrix::scale(double s, Matrix *target) {
     }
 }
 
-void Matrix::subtract(Matrix &b, Matrix *target) {
+void subtract(Matrix &b, Matrix *target) {
     assert(b.m_width == m_width);
     assert(b.m_height == m_height);
 
@@ -188,7 +188,7 @@ void Matrix::subtract(Matrix &b, Matrix *target) {
     }
 }
 
-void Matrix::add(Matrix &b, Matrix *target) {
+void add(Matrix &b, Matrix *target) {
     assert(b.m_width == m_width);
     assert(b.m_height == m_height);
 
@@ -201,7 +201,7 @@ void Matrix::add(Matrix &b, Matrix *target) {
     }
 }
 
-void Matrix::negate(Matrix *target) {
+void negate(Matrix *target) {
     target->resize(m_width, m_height);
 
     for (int i = 0; i < m_height; ++i) {
@@ -211,7 +211,7 @@ void Matrix::negate(Matrix *target) {
     }
 }
 
-bool Matrix::equals(Matrix &b, double err) {
+bool equals(Matrix &b, double err) {
     if (getWidth() != b.getWidth()) return false;
     if (getHeight() != b.getHeight()) return false;
 
@@ -226,7 +226,7 @@ bool Matrix::equals(Matrix &b, double err) {
     return true;
 }
 
-double Matrix::vectorMagnitudeSquared() const {
+double vectorMagnitudeSquared() const {
     assert(m_width == 1);
 
     double mag = 0;
@@ -237,7 +237,7 @@ double Matrix::vectorMagnitudeSquared() const {
     return mag;
 }
 
-double Matrix::dot(Matrix &b) const {
+double dot(Matrix &b) const {
     assert(m_width == 1);
     assert(b.m_width == 1);
     assert(b.m_height == m_height);
@@ -250,7 +250,7 @@ double Matrix::dot(Matrix &b) const {
     return result;
 }
 
-void Matrix::madd(Matrix &b, double s) {
+void madd(Matrix &b, double s) {
     assert(m_width == b.m_width);
     assert(m_height == b.m_height);
 
@@ -261,7 +261,7 @@ void Matrix::madd(Matrix &b, double s) {
     }
 }
 
-void Matrix::pmadd(Matrix &b, double s) {
+void pmadd(Matrix &b, double s) {
     assert(m_width == b.m_width);
     assert(m_height == b.m_height);
 
@@ -272,7 +272,7 @@ void Matrix::pmadd(Matrix &b, double s) {
     }
 }
 
-void Matrix::transpose(Matrix *target) {
+void transpose(Matrix *target) {
     target->resize(m_height, m_width);
 
     for (int i = 0; i < m_width; ++i) {

@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cfloat>
 
-Constraint::Constraint(int constraintCount, int bodyCount) {
+Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -21,7 +21,7 @@ Constraint::Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-SimpleGearConstraint::SimpleGearConstraint(1, 2) {
+SimpleGearConstraint(1, 2) {
     m_ks = 10.0;
     m_kd = 1.0;
 
@@ -29,7 +29,7 @@ SimpleGearConstraint::SimpleGearConstraint(1, 2) {
     m_neutral = false;
 }
 
-void SimpleGearConstraint::calculate(
+void calculate(
     Output *output,
     SystemState *state) {
     output->C[0] = 0;
