@@ -1,5 +1,3 @@
-#include <gtest/gtest.h>
-
 #include "../include/rk4_ode_solver.h"
 
 void rk4Solve(int steps, double t, atg_scs::SystemState *state) {

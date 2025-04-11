@@ -1,7 +1,5 @@
 #include "utilities.h"
 
-#include <gtest/gtest.h>
-
 void compareMatrix(atg_scs::Matrix &a, atg_scs::Matrix &b, double err) {
     EXPECT_EQ(a.getWidth(), b.getWidth());
     EXPECT_EQ(a.getHeight(), b.getHeight());
