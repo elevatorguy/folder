@@ -1,5 +1,17 @@
 #include "euler_ode_solver.h"
 
+OdeSolver::OdeSolver() {
+    m_dt = 0.0;
+}
+
+void OdeSolver::start(SystemState *initial, double dt) {
+    m_dt = dt;
+}
+
+bool OdeSolver::step(SystemState *system) {
+    return true;
+}
+
 void EulerOdeSolver::start(SystemState *initial, double dt) {
     OdeSolver::start(initial, dt);
 }

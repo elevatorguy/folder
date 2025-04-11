@@ -3,6 +3,24 @@
 #include <cmath>
 #include <cfloat>
 
+Constraint::Constraint(int constraintCount, int bodyCount) {
+    assert(constraintCount <= MaxConstraintCount);
+    assert(bodyCount <= MaxBodyCount);
+
+    m_constraintCount = constraintCount;
+    m_bodyCount = bodyCount;
+
+    m_index = -1;
+
+    memset(m_bodies, 0, sizeof(int) * MaxBodyCount);
+
+    for (int i = 0; i < MaxConstraintCount; ++i) {
+        for (int j = 0; j < MaxBodyCount; ++j) {
+            F_x[i][j] = F_y[i][j] = F_t[i][j] = 0;
+        }
+    }
+}
+
 SimpleGearConstraint::SimpleGearConstraint(1, 2) {
     m_ks = 10.0;
     m_kd = 1.0;
