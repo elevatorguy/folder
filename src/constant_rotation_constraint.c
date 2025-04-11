@@ -3,7 +3,7 @@
 #include <limits>
 #include <cmath>
 
-ConstantRotationConstraint::ConstantRotationConstraint() : Constraint(1, 1) {
+ConstantRotationConstraint::ConstantRotationConstraint(1, 1) {
     m_rotationSpeed = 0.0;
     m_maxTorque = DBL_MAX;
     m_minTorque = -DBL_MAX;

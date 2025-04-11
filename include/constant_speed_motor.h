@@ -1,11 +1,18 @@
 #ifndef ATG_SIMPLE_2D_CONSTRAINT_CONSTANT_SPEED_MOTOR_H
 #define ATG_SIMPLE_2D_CONSTRAINT_CONSTANT_SPEED_MOTOR_H
 
-#include "force_generator.h"
+#include "system_state.h"
+
+class ForceGenerator {
+    public:
+        virtual void apply(SystemState *system) = 0;
+
+        int m_index;
+};
 
 #include "rigid_body.h"
 
-class ConstantSpeedMotor : public ForceGenerator {
+class ConstantSpeedMotor {
     public:
         ConstantSpeedMotor();
 

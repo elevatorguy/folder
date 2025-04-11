@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-LineConstraint::LineConstraint() : Constraint(1, 1) {
+LineConstraint::LineConstraint(1, 1) {
     m_local_x = m_local_y = 0.0;
     m_p0_x = m_p0_y = 0.0;
     m_dx = m_dy = 0.0;

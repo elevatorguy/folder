@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cfloat>
 
-SimpleGearConstraint::SimpleGearConstraint() : Constraint(1, 2) {
+SimpleGearConstraint::SimpleGearConstraint(1, 2) {
     m_ks = 10.0;
     m_kd = 1.0;
 

@@ -2,7 +2,7 @@
 
 #include <cfloat>
 
-RotationFrictionConstraint::RotationFrictionConstraint() : Constraint(1, 1) {
+RotationFrictionConstraint::RotationFrictionConstraint(1, 1) {
     m_ks = 10.0;
     m_kd = 1.0;
 

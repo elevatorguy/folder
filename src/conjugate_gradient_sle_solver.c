@@ -3,8 +3,7 @@
 #include <cmath>
 #include <assert.h>
 
-ConjugateGradientSleSolver::ConjugateGradientSleSolver()
-    : atg_scs::SleSolver(false)
+ConjugateGradientSleSolver::ConjugateGradientSleSolver(false)
 {
     m_maxIterations = 1000;
     m_maxError = 1E-2;

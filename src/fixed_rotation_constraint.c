@@ -1,6 +1,6 @@
 #include "fixed_rotation_constraint.h"
 
-FixedRotationConstraint::FixedRotationConstraint() : Constraint(1, 1) {
+FixedRotationConstraint::FixedRotationConstraint(1, 1) {
     m_rotation = 0;
     m_ks = 10.0;
     m_kd = 1.0;

@@ -1,9 +1,20 @@
 #ifndef ATG_SIMPLE_2D_CONSTRAINT_SOLVER_RK4_ODE_SOLVER_H
 #define ATG_SIMPLE_2D_CONSTRAINT_SOLVER_RK4_ODE_SOLVER_H
 
-#include "ode_solver.h"
+#include "system_state.h"
 
-class Rk4OdeSolver : public OdeSolver {
+class OdeSolver {
+    public:
+        OdeSolver();
+
+        virtual void start(SystemState *initial, double dt);
+        virtual bool step(SystemState *system);
+
+    protected:
+        double m_dt;
+};
+
+class Rk4OdeSolver {
     public:
         enum class RkStage {
             Stage_1,

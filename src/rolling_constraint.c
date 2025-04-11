@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-RollingConstraint::RollingConstraint() : Constraint(2, 2) {
+RollingConstraint::RollingConstraint(2, 2) {
     m_local_x = m_local_y = 0.0;
     m_dx = m_dy = 0.0;
     m_radius = 0.0;

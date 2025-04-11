@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-LinkConstraint::LinkConstraint() : Constraint(2, 2) {
+LinkConstraint::LinkConstraint(2, 2) {
     m_local_x_1 = m_local_y_1 = 0.0;
     m_local_x_2 = m_local_y_2 = 0.0;
     m_ks = 10.0;

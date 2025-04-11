@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-FixedPositionConstraint::FixedPositionConstraint() : Constraint(2, 1) {
+FixedPositionConstraint::FixedPositionConstraint(2, 1) {
     m_local_x = m_local_y = 0.0;
     m_world_x = m_world_y = 0.0;
     m_ks = 10.0;
