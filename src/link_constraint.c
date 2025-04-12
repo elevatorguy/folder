@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-Constraint(int constraintCount, int bodyCount) {
+void init_Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -20,7 +20,7 @@ Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-LinkConstraint(2, 2) {
+void init_LinkConstraint(2, 2) {
     m_local_x_1 = m_local_y_1 = 0.0;
     m_local_x_2 = m_local_y_2 = 0.0;
     m_ks = 10.0;

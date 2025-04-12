@@ -2,7 +2,7 @@
 
 #include <cfloat>
 
-Constraint(int constraintCount, int bodyCount) {
+void init_Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -20,7 +20,7 @@ Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-RotationFrictionConstraint(1, 1) {
+void init_RotationFrictionConstraint(1, 1) {
     m_ks = 10.0;
     m_kd = 1.0;
 

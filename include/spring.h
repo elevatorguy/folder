@@ -32,7 +32,7 @@ struct RigidBody {
         double energy() const;
 };
 
-Spring();
+void init_Spring();
 
 virtual void apply(SystemState *state);
 

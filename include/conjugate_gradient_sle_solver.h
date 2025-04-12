@@ -4,7 +4,7 @@
 #include "matrix.h"
 #include "sparse_matrix.h"
 
-SleSolver(bool supportsLimits);
+void init_SleSolver(bool supportsLimits);
 
 virtual bool solve(
         SparseMatrix<3> &J,
@@ -24,7 +24,7 @@ bool supportsLimits() const { return m_supportsLimits; }
 
 bool m_supportsLimits;
 
-ConjugateGradientSleSolver();
+void init_ConjugateGradientSleSolver();
 virtual ~ConjugateGradientSleSolver();
 
 virtual bool solve(

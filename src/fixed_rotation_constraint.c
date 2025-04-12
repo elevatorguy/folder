@@ -1,6 +1,6 @@
 #include "fixed_rotation_constraint.h"
 
-Constraint(int constraintCount, int bodyCount) {
+void init_Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -18,7 +18,7 @@ Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-FixedRotationConstraint(1, 1) {
+void init_FixedRotationConstraint(1, 1) {
     m_rotation = 0;
     m_ks = 10.0;
     m_kd = 1.0;

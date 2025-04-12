@@ -32,7 +32,7 @@ struct RigidBody {
         double energy() const;
 };
 
-StaticForceGenerator();
+void init_StaticForceGenerator();
 
 virtual void apply(SystemState *state);
 

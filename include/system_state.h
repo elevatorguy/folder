@@ -1,8 +1,8 @@
 #ifndef ATG_SIMPLE_2D_CONSTRAINT_SOLVER_SYSTEM_STATE_H
 #define ATG_SIMPLE_2D_CONSTRAINT_SOLVER_SYSTEM_STATE_H
 
-SystemState();
-~SystemState();
+void init_SystemState();
+void deinit_SystemState();
 
 void copy(const SystemState *state);
 void resize(int bodyCount, int constraintCount);

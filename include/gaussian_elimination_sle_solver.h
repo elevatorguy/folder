@@ -4,7 +4,7 @@
 #include "matrix.h"
 #include "sparse_matrix.h"
 
-SleSolver(bool supportsLimits);
+void init_SleSolver(bool supportsLimits);
 
 virtual bool solve(
         SparseMatrix<3> &J,
@@ -26,7 +26,7 @@ bool m_supportsLimits;
 
 #include "utilities.h"
 
-GaussianEliminationSleSolver();
+void init_GaussianEliminationSleSolver();
 virtual ~GaussianEliminationSleSolver();
 
 virtual bool solve(

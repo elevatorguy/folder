@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cfloat>
 
-Constraint(int constraintCount, int bodyCount) {
+void init_Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -21,7 +21,7 @@ Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-ClutchConstraint(1, 2) {
+void init_ClutchConstraint(1, 2) {
     m_ks = 10.0;
     m_kd = 1.0;
 

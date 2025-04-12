@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-RigidBody() {
+void init_RigidBody() {
     index = -1;
     reset();
 }
@@ -52,7 +52,7 @@ void reset() {
     I = 0.0;
 }
 
-Spring() {
+void init_Spring() {
     m_restLength = 1.0;
     m_ks = 0;
     m_kd = 0;

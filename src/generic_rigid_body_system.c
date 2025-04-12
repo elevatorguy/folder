@@ -4,7 +4,7 @@
 #include <chrono>
 #include <cmath>
 
-RigidBodySystem() {
+void init_RigidBodySystem() {
     m_odeSolveMicroseconds = new long long[ProfilingSamples];
     m_constraintSolveMicroseconds = new long long[ProfilingSamples];
     m_forceEvalMicroseconds = new long long[ProfilingSamples];
@@ -19,7 +19,7 @@ RigidBodySystem() {
     }
 }
 
-~RigidBodySystem() {
+void deinit_RigidBodySystem() {
     delete[] m_odeSolveMicroseconds;
     delete[] m_constraintSolveMicroseconds;
     delete[] m_forceEvalMicroseconds;
@@ -173,7 +173,7 @@ void processForces() {
     }
 }
 
-GenericRigidBodySystem() {
+void init_GenericRigidBodySystem() {
     m_sleSolver = nullptr;
     m_odeSolver = nullptr;
 }

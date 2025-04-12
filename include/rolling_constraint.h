@@ -45,7 +45,7 @@ struct Output {
     double kd[MaxConstraintCount];
 };
 
-Constraint(int constraintCount, int bodyCount);
+void init_Constraint(int constraintCount, int bodyCount);
 
 scs_force_inline int getConstraintCount() const { return m_constraintCount; }
 
@@ -66,7 +66,7 @@ inline void noLimits(Output *output) {
 
 int m_constraintCount;
 
-RollingConstraint();
+void init_RollingConstraint();
 
 void setBaseBody(RigidBody *body) { m_bodies[0] = body; }
 void setRollingBody(RigidBody *body) { m_bodies[1] = body; }

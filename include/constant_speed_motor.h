@@ -32,7 +32,7 @@ struct RigidBody {
         double energy() const;
 };
 
-ConstantSpeedMotor();
+void init_ConstantSpeedMotor();
 
 virtual void apply(SystemState *state);
 

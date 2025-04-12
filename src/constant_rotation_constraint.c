@@ -3,7 +3,7 @@
 #include <limits>
 #include <cmath>
 
-Constraint(int constraintCount, int bodyCount) {
+void init_Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
     assert(bodyCount <= MaxBodyCount);
 
@@ -21,7 +21,7 @@ Constraint(int constraintCount, int bodyCount) {
     }
 }
 
-ConstantRotationConstraint(1, 1) {
+void init_ConstantRotationConstraint(1, 1) {
     m_rotationSpeed = 0.0;
     m_maxTorque = DBL_MAX;
     m_minTorque = -DBL_MAX;

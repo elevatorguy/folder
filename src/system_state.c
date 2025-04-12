@@ -6,7 +6,7 @@
 #include <cstring>
 #include <cmath>
 
-SystemState() {
+void init_SystemState() {
     indexMap = nullptr;
 
     a_theta = nullptr;
@@ -35,7 +35,7 @@ SystemState() {
     dt = 0.0;
 }
 
-~SystemState() {
+void deinit_SystemState() {
     assert(n == 0);
     assert(n_c == 0);
 }

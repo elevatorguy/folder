@@ -4,9 +4,9 @@
 #include "utilities.h"
 #include <assert.h>
 
-Matrix();
-Matrix(int width, int height, double value = 0.0);
-~Matrix();
+void init_Matrix();
+void init_Matrix(int width, int height, double value = 0.0);
+void deinit_Matrix();
 
 void initialize(int width, int height, double value);
 void initialize(int width, int height);

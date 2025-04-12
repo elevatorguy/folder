@@ -3,13 +3,13 @@
 #include <chrono>
 #include <cmath>
 
-OptimizedNsvRigidBodySystem() {
+void init_OptimizedNsvRigidBodySystem() {
     m_sleSolver = nullptr;
     m_biasFactor = 1.0;
     m_t = 0.0;
 }
 
-~OptimizedNsvRigidBodySystem() {
+void deinit_OptimizedNsvRigidBodySystem() {
     m_iv.J_sparse.destroy();
     m_iv.sreg0.destroy();
     m_iv.C.destroy();

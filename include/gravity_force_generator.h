@@ -32,7 +32,7 @@ struct RigidBody {
         double energy() const;
 };
 
-GravityForceGenerator();
+void init_GravityForceGenerator();
 
 virtual void apply(SystemState *state);
 

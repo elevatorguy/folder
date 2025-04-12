@@ -3,14 +3,14 @@
 #include <algorithm>
 #include <assert.h>
 
-Matrix() {
+void init_Matrix() {
     m_matrix = nullptr;
     m_data = nullptr;
     m_width = m_height = 0;
     m_capacityWidth = m_capacityHeight = 0;
 }
 
-Matrix(int width, int height, double value) {
+void init_Matrix(int width, int height, double value) {
     m_matrix = nullptr;
     m_data = nullptr;
     m_width = m_height = 0;
@@ -19,7 +19,7 @@ Matrix(int width, int height, double value) {
     initialize(width, height, value);
 }
 
-~Matrix() {
+void deinit_Matrix() {
     assert(m_matrix == nullptr);
 }
 

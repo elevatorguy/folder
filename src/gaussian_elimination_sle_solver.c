@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <fstream>
 
-SleSolver(bool supportsLimits) {
+void init_SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
@@ -29,14 +29,14 @@ bool solveWithLimits(
     return false;
 }
 
-GaussianEliminationSleSolver()
+void init_GaussianEliminationSleSolver()
     : atg_scs::SleSolver(false)
 {
     m_a.initialize(1, 1);
     m_M.initialize(1, 1);
 }
 
-~GaussianEliminationSleSolver() {
+void deinit_GaussianEliminationSleSolver() {
     m_a.destroy();
     m_M.destroy();
     m_reg.destroy();

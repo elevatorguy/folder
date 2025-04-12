@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-ConstantSpeedMotor() {
+void init_ConstantSpeedMotor() {
     m_ks = 1.0f;
     m_kd = 1.0f;
     m_maxTorque = 500.0f;

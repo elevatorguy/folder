@@ -1,6 +1,6 @@
 #include "rk4_ode_solver.h"
 
-OdeSolver() {
+void init_OdeSolver() {
     m_dt = 0.0;
 }
 
@@ -12,11 +12,11 @@ bool step(SystemState *system) {
     return true;
 }
 
-Rk4OdeSolver() {
+void init_Rk4OdeSolver() {
     m_stage = m_nextStage = RkStage::Undefined;
 }
 
-~Rk4OdeSolver() {
+void deinit_Rk4OdeSolver() {
     m_initialState.destroy();
     m_accumulator.destroy();
 }

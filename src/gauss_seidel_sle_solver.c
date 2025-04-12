@@ -3,7 +3,7 @@
 #include <cmath>
 #include <assert.h>
 
-SleSolver(bool supportsLimits) {
+void init_SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
@@ -28,7 +28,7 @@ bool solveWithLimits(
     return false;
 }
 
-GaussSeidelSleSolver()
+void init_GaussSeidelSleSolver()
     : atg_scs::SleSolver(true)
 {
     m_maxIterations = 128;
@@ -37,7 +37,7 @@ GaussSeidelSleSolver()
     m_M.initialize(1, 1);
 }
 
-~GaussSeidelSleSolver() {
+void deinit_GaussSeidelSleSolver() {
     m_M.destroy();
     m_reg.destroy();
 }

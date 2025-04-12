@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-StaticForceGenerator() {
+void init_StaticForceGenerator() {
     m_f_x = m_f_y = 0.0;
     m_p_x = m_p_y = 0.0;
 

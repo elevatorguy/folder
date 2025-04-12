@@ -9,7 +9,7 @@
 
 struct RigidBody {
     public:
-        RigidBody();
+        void init_RigidBody();
 
         void localToWorld(double x, double y, double *w_x, double *w_y);
         void worldToLocal(double x, double y, double *l_x, double *l_y);
@@ -45,7 +45,7 @@ struct Output {
     double kd[MaxConstraintCount];
 };
 
-Constraint(int constraintCount, int bodyCount);
+void init_Constraint(int constraintCount, int bodyCount);
 
 scs_force_inline int getConstraintCount() const { return m_constraintCount; }
 
@@ -66,7 +66,7 @@ inline void noLimits(Output *output) {
 
 int m_constraintCount;
 
-ClutchConstraint();
+void init_ClutchConstraint();
 
 void setBody1(RigidBody *body) { m_bodies[0] = body; }
 void setBody2(RigidBody *body) { m_bodies[1] = body; }

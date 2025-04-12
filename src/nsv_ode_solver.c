@@ -1,6 +1,6 @@
 #include "nsv_ode_solver.h"
 
-OdeSolver() {
+void init_OdeSolver() {
     m_dt = 0.0;
 }
 

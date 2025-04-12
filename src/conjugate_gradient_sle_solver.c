@@ -3,7 +3,7 @@
 #include <cmath>
 #include <assert.h>
 
-SleSolver(bool supportsLimits) {
+void init_SleSolver(bool supportsLimits) {
     m_supportsLimits = supportsLimits;
 }
 
@@ -28,14 +28,14 @@ bool solveWithLimits(
     return false;
 }
 
-ConjugateGradientSleSolver(false)
+void init_ConjugateGradientSleSolver(false)
 {
     m_maxIterations = 1000;
     m_maxError = 1E-2;
     m_minError = 1E-3;
 }
 
-~ConjugateGradientSleSolver() {
+void deinit_ConjugateGradientSleSolver() {
     m_mreg0.destroy();
     m_mreg1.destroy();
     m_Ap.destroy();

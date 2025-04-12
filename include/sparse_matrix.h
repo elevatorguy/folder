@@ -12,7 +12,7 @@
 int T_Stride = 3;
 int T_Entries = 2;
 
-SparseMatrix() {
+void init_SparseMatrix() {
     m_matrix = nullptr;
     m_data = nullptr;
     m_blockData = nullptr;
@@ -20,7 +20,7 @@ SparseMatrix() {
     m_capacityHeight = 0;
 }
 
-~SparseMatrix() {
+void deinit_SparseMatrix() {
     assert(m_matrix == nullptr);
     assert(m_data == nullptr);
     assert(m_blockData == nullptr);

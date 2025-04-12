@@ -34,8 +34,8 @@ struct RigidBody {
 
 static const int ProfilingSamples = 60 * 10;
 
-RigidBodySystem();
-virtual ~RigidBodySystem();
+void init_RigidBodySystem();
+void deinit_RigidBodySystem();
 
 virtual void reset();
 
@@ -83,7 +83,7 @@ long long m_frameIndex;
 #include "sle_solver.h"
 #include "ode_solver.h"
 
-GenericRigidBodySystem();
+void init_GenericRigidBodySystem();
 
 void initialize(SleSolver *sleSolver, OdeSolver *odeSolver);
 virtual void process(double dt, int steps = 1);
