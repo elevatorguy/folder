@@ -28,7 +28,7 @@ bool solveWithLimits(
     return false;
 }
 
-void init_GaussSeidelSleSolver()
+void init_GaussSeidelSleSolver(void)
     : atg_scs::SleSolver(true)
 {
     m_maxIterations = 128;
@@ -37,7 +37,7 @@ void init_GaussSeidelSleSolver()
     m_M.initialize(1, 1);
 }
 
-void deinit_GaussSeidelSleSolver() {
+void deinit_GaussSeidelSleSolver(void) {
     m_M.destroy();
     m_reg.destroy();
 }

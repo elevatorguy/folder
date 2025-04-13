@@ -20,12 +20,12 @@ virtual bool solveWithLimits(
         Matrix *result,
         Matrix *previous);
 
-bool supportsLimits() const { return m_supportsLimits; }
+bool supportsLimits(void) const { return m_supportsLimits; }
 
 bool m_supportsLimits;
 
-void init_ConjugateGradientSleSolver();
-virtual ~ConjugateGradientSleSolver();
+void init_ConjugateGradientSleSolver(void);
+virtual ~ConjugateGradientSleSolver(void);
 
 virtual bool solve(
         SparseMatrix<3> &J,
@@ -38,10 +38,10 @@ void setMaxIterations(int maxIterations) { m_maxIterations = maxIterations; }
 int getMaxIterations() const { return m_maxIterations; }
 
 void setMaxError(double maxError) { m_maxError = maxError; }
-double getMaxError() const { return m_maxError; }
+double getMaxError(void) const { return m_maxError; }
 
 void setMinError(double minError) { m_minError = minError; }
-double getMinError() const { return m_minError; }
+double getMinError(void) const { return m_minError; }
 
 void multiply(SparseMatrix<3> &J, Matrix &W, Matrix &x, Matrix *target);
 bool sufficientlySmall(Matrix &x, Matrix &target) const;

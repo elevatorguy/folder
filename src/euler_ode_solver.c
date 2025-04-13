@@ -1,6 +1,6 @@
 #include "euler_ode_solver.h"
 
-void init_OdeSolver() {
+void init_OdeSolver(void) {
     m_dt = 0.0;
 }
 

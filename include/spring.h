@@ -9,7 +9,7 @@ int m_index;
 
 struct RigidBody {
     public:
-        RigidBody();
+        RigidBody(void);
 
         void localToWorld(double x, double y, double *w_x, double *w_y);
         void worldToLocal(double x, double y, double *l_x, double *l_y);
@@ -28,16 +28,16 @@ struct RigidBody {
 
         int index;
 
-        void reset();
+        void reset(void);
         double energy() const;
 };
 
-void init_Spring();
+void init_Spring(void);
 
 virtual void apply(SystemState *state);
 
 void getEnds(double *x_1, double *y_1, double *x_2, double *y_2);
-double energy() const;
+double energy(void) const;
 
 double m_restLength;
 double m_ks;

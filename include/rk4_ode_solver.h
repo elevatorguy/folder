@@ -3,7 +3,7 @@
 
 #include "system_state.h"
 
-void init_OdeSolver();
+void init_OdeSolver(void);
 
 virtual void start(SystemState *initial, double dt);
 virtual bool step(SystemState *system);
@@ -19,13 +19,13 @@ enum class RkStage {
     Undefined
 };
 
-void init_Rk4OdeSolver();
-void deinit_Rk4OdeSolver();
+void init_Rk4OdeSolver(void);
+void deinit_Rk4OdeSolver(void);
 
 virtual void start(SystemState *initial, double dt);
 virtual bool step(SystemState *system);
 virtual void solve(SystemState *system);
-virtual void end();
+virtual void end(void);
 
 static RkStage getNextStage(RkStage stage);
 

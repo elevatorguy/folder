@@ -20,12 +20,12 @@ virtual bool solveWithLimits(
         Matrix *result,
         Matrix *previous);
 
-bool supportsLimits() const { return m_supportsLimits; }
+bool supportsLimits(void) const { return m_supportsLimits; }
 
 bool m_supportsLimits;
 
-void init_GaussSeidelSleSolver();
-void deinit_GaussSeidelSleSolver();
+void init_GaussSeidelSleSolver(void);
+void deinit_GaussSeidelSleSolver(void);
 
 virtual bool solve(
         SparseMatrix<3> &J,

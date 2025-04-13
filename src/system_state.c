@@ -6,7 +6,7 @@
 #include <cstring>
 #include <cmath>
 
-void init_SystemState() {
+void init_SystemState(void) {
     indexMap = nullptr;
 
     a_theta = nullptr;
@@ -35,7 +35,7 @@ void init_SystemState() {
     dt = 0.0;
 }
 
-void deinit_SystemState() {
+void deinit_SystemState(void) {
     assert(n == 0);
     assert(n_c == 0);
 }
@@ -105,7 +105,7 @@ void resize(int bodyCount, int constraintCount) {
     r_t = new double[(size_t)n_c * 2];
 }
 
-void destroy() {
+void destroy(void) {
     if (n > 0) {
         freeArray(a_theta);
         freeArray(v_theta);

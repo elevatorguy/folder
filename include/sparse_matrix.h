@@ -12,7 +12,7 @@
 int T_Stride = 3;
 int T_Entries = 2;
 
-void init_SparseMatrix() {
+void init_SparseMatrix(void) {
     m_matrix = nullptr;
     m_data = nullptr;
     m_blockData = nullptr;
@@ -20,7 +20,7 @@ void init_SparseMatrix() {
     m_capacityHeight = 0;
 }
 
-void deinit_SparseMatrix() {
+void deinit_SparseMatrix(void) {
     assert(m_matrix == nullptr);
     assert(m_data == nullptr);
     assert(m_blockData == nullptr);
@@ -53,7 +53,7 @@ void resize(int width, int height) {
     }
 }
 
-void destroy() {
+void destroy(void) {
     if (m_matrix == nullptr) {
         return;
     }
@@ -262,8 +262,8 @@ void leftScale(Matrix &scale, SparseMatrix<T_Stride> *target) {
     }
 }
 
-scs_force_inline int getWidth() const { return m_width; }
-scs_force_inline int getHeight() const { return m_height; }
+scs_force_inline int getWidth(void) const { return m_width; }
+scs_force_inline int getHeight(void) const { return m_height; }
 
 double **m_matrix;
 double *m_data;

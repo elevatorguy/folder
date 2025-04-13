@@ -2,12 +2,12 @@
 
 #include <cmath>
 
-void init_RigidBody() {
+void init_RigidBody(void) {
     index = -1;
     reset();
 }
 
-double energy() const {
+double energy(void) const {
     const double speed_2 = v_x * v_x + v_y * v_y;
     const double E_k = 0.5 * m * speed_2;
     const double E_r = 0.5 * I * v_theta * v_theta;
@@ -41,7 +41,7 @@ void worldToLocal(
     *l_y = -sin_theta * (x - p_x) + cos_theta * (y - p_y);
 }
 
-void reset() {
+void reset(void) {
     p_x = p_y = 0.0;
     v_x = v_y = 0.0;
 
@@ -52,7 +52,7 @@ void reset() {
     I = 0.0;
 }
 
-void init_Spring() {
+void init_Spring(void) {
     m_restLength = 1.0;
     m_ks = 0;
     m_kd = 0;
@@ -132,7 +132,7 @@ void getEnds(double *x_1, double *y_1, double *x_2, double *y_2) {
     m_body2->localToWorld(m_p2_x, m_p2_y, x_2, y_2);
 }
 
-double energy() const {
+double energy(void) const {
     if (m_body1 == nullptr || m_body2 == nullptr) return 0;
 
     double x1, y1;

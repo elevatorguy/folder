@@ -20,14 +20,14 @@ virtual bool solveWithLimits(
         Matrix *result,
         Matrix *previous);
 
-bool supportsLimits() const { return m_supportsLimits; }
+bool supportsLimits(void) const { return m_supportsLimits; }
 
 bool m_supportsLimits;
 
 #include "utilities.h"
 
-void init_GaussianEliminationSleSolver();
-virtual ~GaussianEliminationSleSolver();
+void init_GaussianEliminationSleSolver(void);
+virtual ~GaussianEliminationSleSolver(void);
 
 virtual bool solve(
         SparseMatrix<3> &J,

@@ -4,7 +4,7 @@
 #include <chrono>
 #include <cmath>
 
-void init_RigidBodySystem() {
+void init_RigidBodySystem(void) {
     m_odeSolveMicroseconds = new long long[ProfilingSamples];
     m_constraintSolveMicroseconds = new long long[ProfilingSamples];
     m_forceEvalMicroseconds = new long long[ProfilingSamples];
@@ -19,7 +19,7 @@ void init_RigidBodySystem() {
     }
 }
 
-void deinit_RigidBodySystem() {
+void deinit_RigidBodySystem(void) {
     delete[] m_odeSolveMicroseconds;
     delete[] m_constraintSolveMicroseconds;
     delete[] m_forceEvalMicroseconds;
@@ -28,7 +28,7 @@ void deinit_RigidBodySystem() {
     m_state.destroy();
 }
 
-void reset() {
+void reset(void) {
     m_rigidBodies.clear();
     m_constraints.clear();
     m_forceGenerators.clear();
@@ -72,7 +72,7 @@ void removeForceGenerator(ForceGenerator *forceGenerator) {
     m_forceGenerators.resize(m_forceGenerators.size() - 1);
 }
 
-int getFullConstraintCount() const {
+int getFullConstraintCount(void) const {
     int count = 0;
     for (Constraint *constraint: m_constraints) {
         count += constraint->getConstraintCount();
@@ -95,23 +95,23 @@ float findAverage(long long *samples) {
     else return (float)accum / count;
 }
 
-float getOdeSolveMicroseconds() const {
+float getOdeSolveMicroseconds(void) const {
     return findAverage(m_odeSolveMicroseconds);
 }
 
-float getConstraintSolveMicroseconds() const {
+float getConstraintSolveMicroseconds(void) const {
     return findAverage(m_constraintSolveMicroseconds);
 }
 
-float getConstraintEvalMicroseconds() const {
+float getConstraintEvalMicroseconds(void) const {
     return findAverage(m_constraintEvalMicroseconds);
 }
 
-float getForceEvalMicroseconds() const {
+float getForceEvalMicroseconds(void) const {
     return findAverage(m_forceEvalMicroseconds);
 }
 
-void populateSystemState() {
+void populateSystemState(void) {
     const int n = getRigidBodyCount();
     const int n_c = getFullConstraintCount();
     const int m = getConstraintCount();
@@ -158,7 +158,7 @@ void populateMassMatrices(Matrix *M, Matrix *M_inv) {
      }
 }
 
-void processForces() {
+void processForces(void) {
     const int n_f = getForceGeneratorCount();
     const int n = getRigidBodyCount();
 
@@ -173,7 +173,7 @@ void processForces() {
     }
 }
 
-void init_GenericRigidBodySystem() {
+void init_GenericRigidBodySystem(void) {
     m_sleSolver = nullptr;
     m_odeSolver = nullptr;
 }

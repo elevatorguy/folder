@@ -9,7 +9,7 @@
 
 struct RigidBody {
     public:
-        RigidBody();
+        RigidBody(void);
 
         void localToWorld(double x, double y, double *w_x, double *w_y);
         void worldToLocal(double x, double y, double *l_x, double *l_y);
@@ -28,16 +28,16 @@ struct RigidBody {
 
         int index;
 
-        void reset();
-        double energy() const;
+        void reset(void);
+        double energy(void) const;
 };
 
 static const int ProfilingSamples = 60 * 10;
 
-void init_RigidBodySystem();
-void deinit_RigidBodySystem();
+void init_RigidBodySystem(void);
+void deinit_RigidBodySystem(void);
 
-virtual void reset();
+virtual void reset(void);
 
 void addRigidBody(RigidBody *body);
 void removeRigidBody(RigidBody *body);
@@ -49,24 +49,24 @@ void removeConstraint(Constraint *constraint);
 void addForceGenerator(ForceGenerator *generator);
 void removeForceGenerator(ForceGenerator *generator);
 
-int getRigidBodyCount() const { return (int)m_rigidBodies.size(); }
-int getConstraintCount() const { return (int)m_constraints.size(); }
-int getForceGeneratorCount() const { return (int)m_forceGenerators.size(); }
+int getRigidBodyCount(void) const { return (int)m_rigidBodies.size(); }
+int getConstraintCount(void) const { return (int)m_constraints.size(); }
+int getForceGeneratorCount(void) const { return (int)m_forceGenerators.size(); }
 
-int getFullConstraintCount() const;
+int getFullConstraintCount(void) const;
 
-float getOdeSolveMicroseconds() const;
-float getConstraintSolveMicroseconds() const;
-float getForceEvalMicroseconds() const;
-float getConstraintEvalMicroseconds() const;
+float getOdeSolveMicroseconds(void) const;
+float getConstraintSolveMicroseconds(void) const;
+float getForceEvalMicroseconds(void) const;
+float getConstraintEvalMicroseconds(void) const;
 
-inline const SystemState *state() const { return &m_state; }
+inline const SystemState *state(void) const { return &m_state; }
 
 static float findAverage(long long *samples);
 
-void populateSystemState();
+void populateSystemState(void);
 void populateMassMatrices(Matrix *M, Matrix *M_inv);
-void processForces();
+void processForces(void);
 
 std::vector<RigidBody *> m_rigidBodies;
 std::vector<Constraint *> m_constraints;
@@ -83,7 +83,7 @@ long long m_frameIndex;
 #include "sle_solver.h"
 #include "ode_solver.h"
 
-void init_GenericRigidBodySystem();
+void init_GenericRigidBodySystem(void);
 
 void initialize(SleSolver *sleSolver, OdeSolver *odeSolver);
 virtual void process(double dt, int steps = 1);

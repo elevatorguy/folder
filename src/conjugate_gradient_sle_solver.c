@@ -35,7 +35,7 @@ void init_ConjugateGradientSleSolver(false)
     m_minError = 1E-3;
 }
 
-void deinit_ConjugateGradientSleSolver() {
+void deinit_ConjugateGradientSleSolver(void) {
     m_mreg0.destroy();
     m_mreg1.destroy();
     m_Ap.destroy();

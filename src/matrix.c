@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <assert.h>
 
-void init_Matrix() {
+void init_Matrix(void) {
     m_matrix = nullptr;
     m_data = nullptr;
     m_width = m_height = 0;
@@ -19,7 +19,7 @@ void init_Matrix(int width, int height, double value) {
     initialize(width, height, value);
 }
 
-void deinit_Matrix() {
+void deinit_Matrix(void) {
     assert(m_matrix == nullptr);
 }
 
@@ -63,7 +63,7 @@ void resize(int width, int height) {
     }
 }
 
-void destroy() {
+void destroy(void) {
     if (m_matrix == nullptr) {
         return;
     }
@@ -226,7 +226,7 @@ bool equals(Matrix &b, double err) {
     return true;
 }
 
-double vectorMagnitudeSquared() const {
+double vectorMagnitudeSquared(void) const {
     assert(m_width == 1);
 
     double mag = 0;

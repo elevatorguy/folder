@@ -3,13 +3,13 @@
 #include <chrono>
 #include <cmath>
 
-void init_OptimizedNsvRigidBodySystem() {
+void init_OptimizedNsvRigidBodySystem(void) {
     m_sleSolver = nullptr;
     m_biasFactor = 1.0;
     m_t = 0.0;
 }
 
-void deinit_OptimizedNsvRigidBodySystem() {
+void deinit_OptimizedNsvRigidBodySystem(void) {
     m_iv.J_sparse.destroy();
     m_iv.sreg0.destroy();
     m_iv.C.destroy();
@@ -86,7 +86,7 @@ void process(double dt, int steps) {
     m_t += dt;
 }
 
-void propagateResults() {
+void propagateResults(void) {
     const int n = getRigidBodyCount();
     for (int i = 0; i < n; ++i) {
         m_rigidBodies[i]->v_x = m_state.v_x[i];

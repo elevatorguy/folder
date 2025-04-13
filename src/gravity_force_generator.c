@@ -1,6 +1,6 @@
 #include "gravity_force_generator.h"
 
-void init_GravityForceGenerator() {
+void init_GravityForceGenerator(void) {
     m_g = 9.81;
 }
 

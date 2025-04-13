@@ -9,7 +9,7 @@
 
 struct RigidBody {
     public:
-        RigidBody();
+        RigidBody(void);
 
         void localToWorld(double x, double y, double *w_x, double *w_y);
         void worldToLocal(double x, double y, double *l_x, double *l_y);
@@ -28,8 +28,8 @@ struct RigidBody {
 
         int index;
 
-        void reset();
-        double energy() const;
+        void reset(void);
+        double energy(void) const;
 };
 
 static constexpr int MaxConstraintCount = 3;
@@ -47,7 +47,7 @@ struct Output {
 
 void init_Constraint(int constraintCount, int bodyCount);
 
-scs_force_inline int getConstraintCount() const { return m_constraintCount; }
+scs_force_inline int getConstraintCount(void) const { return m_constraintCount; }
 
 int m_index;
 int m_bodyCount;
@@ -66,7 +66,7 @@ inline void noLimits(Output *output) {
 
 int m_constraintCount;
 
-void init_FixedPositionConstraint();
+void init_FixedPositionConstraint(void);
 
 void setBody(RigidBody *body) { m_bodies[0] = body; }
 

@@ -4,14 +4,14 @@
 #include "utilities.h"
 #include <assert.h>
 
-void init_Matrix();
+void init_Matrix(void);
 void init_Matrix(int width, int height, double value = 0.0);
-void deinit_Matrix();
+void deinit_Matrix(void);
 
 void initialize(int width, int height, double value);
 void initialize(int width, int height);
 void resize(int width, int height);
-void destroy();
+void destroy(void);
 
 void set(const double *data);
 
@@ -55,8 +55,8 @@ void madd(Matrix &b, double s);
 void pmadd(Matrix &b, double s);
 
 void transpose(Matrix *target);
-int getWidth() const { return m_width; }
-int getHeight() const { return m_height; }
+int getWidth(void) const { return m_width; }
+int getHeight(void) const { return m_height; }
 
 scs_force_inline void fastRowSwap(int a, int b) {
     double *temp = m_matrix[a];

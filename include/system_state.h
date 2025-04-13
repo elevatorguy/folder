@@ -1,12 +1,12 @@
 #ifndef ATG_SIMPLE_2D_CONSTRAINT_SOLVER_SYSTEM_STATE_H
 #define ATG_SIMPLE_2D_CONSTRAINT_SOLVER_SYSTEM_STATE_H
 
-void init_SystemState();
-void deinit_SystemState();
+void init_SystemState(void);
+void deinit_SystemState(void);
 
 void copy(const SystemState *state);
 void resize(int bodyCount, int constraintCount);
-void destroy();
+void destroy(void);
 
 void localToWorld(double x, double y, double *x_t, double *y_t, int body);
 void velocityAtPoint(double x, double y, double *v_x, double *v_y, int body);
