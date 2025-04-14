@@ -7,9 +7,23 @@
 namespace atg_scs {
     class Matrix {
         public:
-            Matrix();
-            Matrix(int width, int height, double value = 0.0);
-            ~Matrix();
+            Matrix() {
+                    m_matrix = nullptr;
+                    m_data = nullptr;
+                    m_width = m_height = 0;
+                    m_capacityWidth = m_capacityHeight = 0;
+            }
+            Matrix(int width, int height, double value = 0.0) {
+                    m_matrix = nullptr;
+                    m_data = nullptr;
+                    m_width = m_height = 0;
+                    m_capacityWidth = m_capacityHeight = 0;
+
+                    initialize(width, height, value);
+            }
+            ~Matrix() {
+                    assert(m_matrix == nullptr);
+            }
 
             void initialize(int width, int height, double value);
             void initialize(int width, int height);
@@ -82,26 +96,6 @@ namespace atg_scs {
 
 #include <algorithm>
 #include <assert.h>
-
-atg_scs::Matrix::Matrix() {
-    m_matrix = nullptr;
-    m_data = nullptr;
-    m_width = m_height = 0;
-    m_capacityWidth = m_capacityHeight = 0;
-}
-
-atg_scs::Matrix::Matrix(int width, int height, double value) {
-    m_matrix = nullptr;
-    m_data = nullptr;
-    m_width = m_height = 0;
-    m_capacityWidth = m_capacityHeight = 0;
-
-    initialize(width, height, value);
-}
-
-atg_scs::Matrix::~Matrix() {
-    assert(m_matrix == nullptr);
-}
 
 void atg_scs::Matrix::initialize(int width, int height, double value) {
     resize(width, height);
