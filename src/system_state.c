@@ -81,7 +81,7 @@ void resize(int bodyCount, int constraintCount) {
     n = bodyCount;
     n_c = constraintCount;
 
-    indexMap = new int[n_c];
+    allocateIntArray(indexMap, n_c);
 
     a_theta = new double[n];
     v_theta = new double[n];
