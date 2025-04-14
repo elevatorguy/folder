@@ -16,3 +16,12 @@ namespace atg_scs {
 } /* namespace atg_scs */
 
 #endif /* ATG_SIMPLE_2D_CONSTRAINT_SOLVER_FORCE_GENERATOR_H */
+#include "../include/force_generator.h"
+
+atg_scs::ForceGenerator::ForceGenerator() {
+    /* void */
+}
+
+atg_scs::ForceGenerator::~ForceGenerator() {
+    /* void */
+}

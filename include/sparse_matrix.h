@@ -279,3 +279,8 @@ namespace atg_scs {
 } /* namespace atg_scs */
 
 #endif /* ATG_SIMPLE_2D_CONSTRAINT_SOLVER_SPARSE_MATRIX_H */
+#include "../include/sparse_matrix.h"
+
+#include "../include/matrix.h"
+
+#include <algorithm>

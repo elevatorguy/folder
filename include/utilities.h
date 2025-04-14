@@ -13,3 +13,14 @@ namespace atg_scs {
 } /* atg_scs */
 
 #endif /* ATG_SIMPLE_2D_CONSTRAINT_SOLVER_UTILITIES_H */
+#include "../include/utilities.h"
+
+void atg_scs::freeArray(double *&data) {
+    delete[] data;
+    data = nullptr;
+}
+
+void atg_scs::freeArray(int *&data) {
+    delete[] data;
+    data = nullptr;
+}
