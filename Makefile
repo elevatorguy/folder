@@ -15,7 +15,7 @@ note:
 	@echo
 
 main:
-	$(CC) $(CXXFLAGS) ./src/main.cpp -o ./bin/test
+	$(CC) $(CXXFLAGS) -o ./bin/file -I include
 
 done:
 	@echo

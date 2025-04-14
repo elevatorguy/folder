@@ -1,5 +1,3 @@
-#include <gtest/gtest.h>
-
 #include "../include/euler_ode_solver.h"
 
 void eulerSolve(int steps, double t, atg_scs::SystemState *state) {

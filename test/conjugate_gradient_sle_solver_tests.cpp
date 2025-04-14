@@ -1,5 +1,3 @@
-#include <gtest/gtest.h>
-
 #include "utilities.h"
 
 #include "../include/conjugate_gradient_sle_solver.h"

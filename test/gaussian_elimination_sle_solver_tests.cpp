@@ -1,5 +1,3 @@
-#include <gtest/gtest.h>
-
 #include "utilities.h"
 
 #include "../include/gaussian_elimination_sle_solver.h"

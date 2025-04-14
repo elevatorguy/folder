@@ -1,5 +1,3 @@
-#include <gtest/gtest.h>
-
 #include "../include/rolling_constraint.h"
 
 #include <random>
