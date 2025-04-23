@@ -27,7 +27,7 @@ TEST(GaussSeidelSleSolverTests, GaussSeidelSleSolverBasic) {
     J.set(L_data);
     R.set(R_data);
 
-    const bool solvable = solver.solve(J, s, R, nullptr, &solution);
+    const bool solvable = solver.solve(J, s, R, NULL, &solution);
     EXPECT_TRUE(solvable);
 
     JWJ_t(J, s, &L);
@@ -68,7 +68,7 @@ TEST(GaussSeidelSleSolverTests, GaussSeidelSleSolver4x4) {
     J.set(L_data);
     R.set(R_data);
 
-    const bool solvable = solver.solve(J, s, R, nullptr, &solution);
+    const bool solvable = solver.solve(J, s, R, NULL, &solution);
     EXPECT_TRUE(solvable);
 
     JWJ_t(J, s, &L);

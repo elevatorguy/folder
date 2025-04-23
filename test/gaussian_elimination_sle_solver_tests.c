@@ -29,7 +29,7 @@ TEST(GaussianEliminationSleSolverTests, GaussianEliminationSleSolverBasic) {
 
     fullToSparse(J_mat, &J, 3);
 
-    const bool solvable = solver.solve(J, s, R, nullptr, &solution);
+    const bool solvable = solver.solve(J, s, R, NULL, &solution);
     EXPECT_TRUE(solvable);
     
     JWJ_t(J_mat, s, &L);
@@ -87,7 +87,7 @@ TEST(GaussianEliminationSleSolverTests, GaussianEliminationSleSolver4x4) {
     JW_sparse.multiplyTranspose(J_sparse, &temp);
     compareMatrix(temp, L);
 
-    const bool solvable = solver.solve(J_sparse, s, R, nullptr, &solution);
+    const bool solvable = solver.solve(J_sparse, s, R, NULL, &solution);
     EXPECT_TRUE(solvable);
 
     L.multiply(solution, &check);

@@ -60,11 +60,11 @@ void init_Spring(void) {
     m_p1_x = m_p1_y = 0;
     m_p2_x = m_p2_y = 0;
 
-    m_body1 = m_body2 = nullptr;
+    m_body1 = m_body2 = NULL;
 }
 
 void apply(SystemState *state) {
-    if (m_body1 == nullptr || m_body2 == nullptr) return;
+    if (m_body1 == NULL || m_body2 == NULL) return;
 
     double x1, y1;
     double x2, y2;
@@ -126,14 +126,14 @@ void apply(SystemState *state) {
 }
 
 void getEnds(double *x_1, double *y_1, double *x_2, double *y_2) {
-    if (m_body1 == nullptr || m_body2 == nullptr) return;
+    if (m_body1 == NULL || m_body2 == NULL) return;
 
     m_body1->localToWorld(m_p1_x, m_p1_y, x_1, y_1);
     m_body2->localToWorld(m_p2_x, m_p2_y, x_2, y_2);
 }
 
 double energy(void) const {
-    if (m_body1 == nullptr || m_body2 == nullptr) return 0;
+    if (m_body1 == NULL || m_body2 == NULL) return 0;
 
     double x1, y1;
     double x2, y2;

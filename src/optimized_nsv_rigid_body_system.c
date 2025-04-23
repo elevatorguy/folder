@@ -4,7 +4,7 @@
 #include <cmath>
 
 void init_OptimizedNsvRigidBodySystem(void) {
-    m_sleSolver = nullptr;
+    m_sleSolver = NULL;
     m_biasFactor = 1.0;
     m_t = 0.0;
 }

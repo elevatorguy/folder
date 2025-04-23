@@ -46,7 +46,7 @@ TEST(ConjugateGradientSleSolverTests, ConjugateGradientSleSolver4x4) {
     JW_sparse.multiplyTranspose(J_sparse, &temp);
     compareMatrix(temp, L);
 
-    const bool solvable = solver.solve(J_sparse, s, R, nullptr, &solution);
+    const bool solvable = solver.solve(J_sparse, s, R, NULL, &solution);
     EXPECT_TRUE(solvable);
 
     L.multiply(solution, &check);

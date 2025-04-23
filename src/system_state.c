@@ -3,28 +3,28 @@
 #include "utilities.h"
 
 #include <assert.h>
-#include <cstring>
-#include <cmath>
+#include <string.h>
+#include <math.h>
 
 void init_SystemState(void) {
-    indexMap = nullptr;
+    indexMap = NULL;
 
-    a_theta = nullptr;
-    v_theta = nullptr;
-    theta = nullptr;
+    a_theta = NULL;
+    v_theta = NULL;
+    theta = NULL;
 
-    a_x = nullptr;
-    a_y = nullptr;
-    v_x = nullptr;
-    v_y = nullptr;
-    p_x = nullptr;
-    p_y = nullptr;
+    a_x = NULL;
+    a_y = NULL;
+    v_x = NULL;
+    v_y = NULL;
+    p_x = NULL;
+    p_y = NULL;
 
-    f_x = nullptr;
-    f_y = nullptr;
-    t = nullptr;
+    f_x = NULL;
+    f_y = NULL;
+    t = NULL;
 
-    m = nullptr;
+    m = NULL;
 
     r_x = 0;
     r_y = 0;

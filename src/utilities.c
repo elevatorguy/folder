@@ -18,7 +18,7 @@ void allocateArray(int *&data, int num_elements) {
 void freeArray(double *&data) {
     #ifdef __cplusplus
     delete[] data;
-    data = nullptr;
+    data = NULL;
     #else
         #ifdef __HOSTED__
                 free(data);
@@ -31,7 +31,7 @@ void freeArray(double *&data) {
 void freeArray(int *&data) {
     #ifdef __cplusplus
     delete[] data;
-    data = nullptr;
+    data = NULL;
     #else
         #ifdef __HOSTED__
                 free(data);

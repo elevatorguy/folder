@@ -4,15 +4,15 @@
 #include <assert.h>
 
 void init_Matrix(void) {
-    m_matrix = nullptr;
-    m_data = nullptr;
+    m_matrix = NULL;
+    m_data = NULL;
     m_width = m_height = 0;
     m_capacityWidth = m_capacityHeight = 0;
 }
 
 void init_Matrix(int width, int height, double value) {
-    m_matrix = nullptr;
-    m_data = nullptr;
+    m_matrix = NULL;
+    m_data = NULL;
     m_width = m_height = 0;
     m_capacityWidth = m_capacityHeight = 0;
 
@@ -20,7 +20,7 @@ void init_Matrix(int width, int height, double value) {
 }
 
 void deinit_Matrix(void) {
-    assert(m_matrix == nullptr);
+    assert(m_matrix == NULL);
 }
 
 void initialize(int width, int height, double value) {
@@ -64,15 +64,15 @@ void resize(int width, int height) {
 }
 
 void destroy(void) {
-    if (m_matrix == nullptr) {
+    if (m_matrix == NULL) {
         return;
     }
 
     delete[] m_matrix;
     delete[] m_data;
 
-    m_matrix = nullptr;
-    m_data = nullptr;
+    m_matrix = NULL;
+    m_data = NULL;
 
     m_width = m_height = 0;
     m_capacityWidth = m_capacityHeight = 0;

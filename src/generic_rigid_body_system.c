@@ -174,8 +174,8 @@ void processForces(void) {
 }
 
 void init_GenericRigidBodySystem(void) {
-    m_sleSolver = nullptr;
-    m_odeSolver = nullptr;
+    m_sleSolver = NULL;
+    m_odeSolver = NULL;
 }
 
 void initialize(

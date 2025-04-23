@@ -13,17 +13,17 @@ int T_Stride = 3;
 int T_Entries = 2;
 
 void init_SparseMatrix(void) {
-    m_matrix = nullptr;
-    m_data = nullptr;
-    m_blockData = nullptr;
+    m_matrix = NULL;
+    m_data = NULL;
+    m_blockData = NULL;
     m_width = m_height = 0;
     m_capacityHeight = 0;
 }
 
 void deinit_SparseMatrix(void) {
-    assert(m_matrix == nullptr);
-    assert(m_data == nullptr);
-    assert(m_blockData == nullptr);
+    assert(m_matrix == NULL);
+    assert(m_data == NULL);
+    assert(m_blockData == NULL);
 }
 
 void initialize(int width, int height) {
@@ -54,7 +54,7 @@ void resize(int width, int height) {
 }
 
 void destroy(void) {
-    if (m_matrix == nullptr) {
+    if (m_matrix == NULL) {
         return;
     }
 
@@ -62,9 +62,9 @@ void destroy(void) {
     delete[] m_data;
     delete[] m_blockData;
 
-    m_matrix = nullptr;
-    m_data = nullptr;
-    m_blockData = nullptr;
+    m_matrix = NULL;
+    m_data = NULL;
+    m_blockData = NULL;
 
     m_width = m_height = 0;
 }

@@ -53,7 +53,7 @@ bool solve(
     
     result->resize(1, n);
 
-    if (previous != nullptr && previous->getHeight() == n) {
+    if (previous != NULL && previous->getHeight() == n) {
         result->set(previous);
     }
 
@@ -88,7 +88,7 @@ bool solveWithLimits(
         result->initialize(1, n);
     }
 
-    if (previous != nullptr && previous->getHeight() == n) {
+    if (previous != NULL && previous->getHeight() == n) {
         result->set(previous);
     }
 

@@ -8,8 +8,8 @@ void init_ConstantSpeedMotor(void) {
     m_maxTorque = 500.0f;
     m_speed = 1.0f;
 
-    m_body0 = nullptr;
-    m_body1 = nullptr;
+    m_body0 = NULL;
+    m_body1 = NULL;
 }
 
 void apply(SystemState *state) {

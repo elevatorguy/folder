@@ -58,7 +58,7 @@ bool solve(
     m_Ap.resize(1, n);
     m_x.initialize(1, n);
 
-    if (previous != nullptr && previous->getHeight() == n) {
+    if (previous != NULL && previous->getHeight() == n) {
         m_x.set(previous);
     }
 
