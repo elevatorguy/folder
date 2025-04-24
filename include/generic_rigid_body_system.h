@@ -68,9 +68,9 @@ void populateSystemState(void);
 void populateMassMatrices(Matrix *M, Matrix *M_inv);
 void processForces(void);
 
-std::vector<RigidBody *> m_rigidBodies;
-std::vector<Constraint *> m_constraints;
-std::vector<ForceGenerator *> m_forceGenerators;
+vector<RigidBody *> m_rigidBodies;
+vector<Constraint *> m_constraints;
+vector<ForceGenerator *> m_forceGenerators;
 
 SystemState m_state;
 

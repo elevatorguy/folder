@@ -119,7 +119,7 @@ bool sufficientlySmall(
     for (int i = 0; i < x.getHeight(); ++i) {
         const double err = x.get(0, i);
         const double t = target.get(0, i);
-        if (std::abs(err) > std::fmax(std::abs(m_maxError * t), m_minError)) {
+        if (abs(err) > fmax(abs(m_maxError * t), m_minError)) {
             return false;
         }
     }

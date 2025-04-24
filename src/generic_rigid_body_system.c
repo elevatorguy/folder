@@ -206,22 +206,22 @@ void process(double dt, int steps) {
 
             long long evalTime = 0, solveTime = 0;
 
-            auto s0 = std::chrono::steady_clock::now();
+            auto s0 = chrono::steady_clock::now();
             processForces();
-            auto s1 = std::chrono::steady_clock::now();
+            auto s1 = chrono::steady_clock::now();
 
             processConstraints(&evalTime, &solveTime);
 
-            auto s2 = std::chrono::steady_clock::now();
+            auto s2 = chrono::steady_clock::now();
             m_odeSolver->solve(&m_state);
-            auto s3 = std::chrono::steady_clock::now();
+            auto s3 = chrono::steady_clock::now();
 
             constraintSolveTime += solveTime;
             constraintEvalTime += evalTime;
             odeSolveTime +=
-                std::chrono::duration_cast<std::chrono::microseconds>(s3 - s2).count();
+                chrono::duration_cast<chrono::microseconds>(s3 - s2).count();
             forceEvalTime +=
-                std::chrono::duration_cast<std::chrono::microseconds>(s1 - s0).count();
+                chrono::duration_cast<chrono::microseconds>(s1 - s0).count();
 
             if (done) break;
         }
@@ -268,7 +268,7 @@ void processConstraints(
     *evalTime = -1;
     *solveTime = -1;
 
-    auto s0 = std::chrono::steady_clock::now();
+    auto s0 = chrono::steady_clock::now();
 
     const int n = getRigidBodyCount();
     const int m_f = getFullConstraintCount();
@@ -343,7 +343,7 @@ void processConstraints(
     m_iv.reg2.subtract(m_iv.ks, &m_iv.reg0);
     m_iv.reg0.subtract(m_iv.kd, &m_iv.right);
 
-    auto s1 = std::chrono::steady_clock::now();
+    auto s1 = chrono::steady_clock::now();
 
     const bool solvable =
         m_sleSolver->solve(
@@ -354,7 +354,7 @@ void processConstraints(
             &m_iv.lambda);
     assert(solvable);
 
-    auto s2 = std::chrono::steady_clock::now();
+    auto s2 = chrono::steady_clock::now();
 
     // Constraint force derivation
     //  R = J_T * lambda_scale
@@ -401,10 +401,10 @@ void processConstraints(
         m_state.a_theta[i] *= invInertia;
     }
 
-    auto s3 = std::chrono::steady_clock::now();
+    auto s3 = chrono::steady_clock::now();
 
     *evalTime =
-        std::chrono::duration_cast<std::chrono::microseconds>(s1 - s0 + s3 - s2).count();
+        chrono::duration_cast<chrono::microseconds>(s1 - s0 + s3 - s2).count();
     *solveTime =
-        std::chrono::duration_cast<std::chrono::microseconds>(s2 - s1).count();
+        chrono::duration_cast<chrono::microseconds>(s2 - s1).count();
 }

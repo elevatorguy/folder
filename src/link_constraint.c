@@ -1,6 +1,6 @@
 #include "link_constraint.h"
 
-#include <cmath>
+#include <math.h>
 
 void init_Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
@@ -46,11 +46,11 @@ void calculate(
     const double q3_dot = state->v_theta[body];
     const double q6_dot = state->v_theta[linkedBody];
 
-    const double cos_q3 = std::cos(q3);
-    const double sin_q3 = std::sin(q3);
+    const double cos_q3 = cos(q3);
+    const double sin_q3 = sin(q3);
 
-    const double cos_q6 = std::cos(q6);
-    const double sin_q6 = std::sin(q6);
+    const double cos_q6 = cos(q6);
+    const double sin_q6 = sin(q6);
 
     const double bodyX = q1 + cos_q3 * m_local_x_1 - sin_q3 * m_local_y_1;
     const double bodyY = q2 + sin_q3 * m_local_x_1 + cos_q3 * m_local_y_1;

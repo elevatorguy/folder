@@ -1,6 +1,6 @@
 #include "spring.h"
 
-#include <cmath>
+#include <math.h>
 
 void init_RigidBody(void) {
     index = -1;
@@ -21,8 +21,8 @@ void localToWorld(
         double *w_x,
         double *w_y)
 {
-    const double cos_theta = std::cos(theta);
-    const double sin_theta = std::sin(theta);
+    const double cos_theta = cos(theta);
+    const double sin_theta = sin(theta);
 
     *w_x = cos_theta * x - sin_theta * y + p_x;
     *w_y = sin_theta * x + cos_theta * y + p_y;
@@ -34,8 +34,8 @@ void worldToLocal(
         double *l_x,
         double *l_y)
 {
-    const double cos_theta = std::cos(theta);
-    const double sin_theta = std::sin(theta);
+    const double cos_theta = cos(theta);
+    const double sin_theta = sin(theta);
 
     *l_x = cos_theta * (x - p_x) + sin_theta * (y - p_y);
     *l_y = -sin_theta * (x - p_x) + cos_theta * (y - p_y);
@@ -91,9 +91,9 @@ void apply(SystemState *state) {
     double dx = x2 - x1;
     double dy = y2 - y1;
 
-    const double l = std::sqrt(dx * dx + dy * dy);
+    const double l = sqrt(dx * dx + dy * dy);
 
-    if (std::abs(l) >= 1E-2) {
+    if (abs(l) >= 1E-2) {
         dx /= l;
         dy /= l;
     }
@@ -144,7 +144,7 @@ double energy(void) const {
     const double dx = x2 - x1;
     const double dy = y2 - y1;
 
-    const double l = std::sqrt(dx * dx + dy * dy);
+    const double l = sqrt(dx * dx + dy * dy);
 
     return 0.5 * m_ks * (l - m_restLength) * (l - m_restLength);
 }

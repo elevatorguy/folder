@@ -1,6 +1,6 @@
 #include "constant_speed_motor.h"
 
-#include <cmath>
+#include <math.h>
 
 void init_ConstantSpeedMotor(void) {
     m_ks = 1.0f;
@@ -34,7 +34,7 @@ void apply(SystemState *state) {
     const double dampingTorque = -rel_a * m_kd;
     const double totalTorque = torque + dampingTorque;
     const double limitedTorque =
-        std::fmin(m_maxTorque, std::fmax(-m_maxTorque, totalTorque));
+        fmin(m_maxTorque, fmax(-m_maxTorque, totalTorque));
 
     if (m_body0->index != -1) state->t[m_body0->index] -= limitedTorque;
     state->t[m_body1->index] += limitedTorque;

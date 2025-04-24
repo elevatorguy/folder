@@ -217,7 +217,7 @@ bool equals(Matrix &b, double err) {
 
     for (int i = 0; i < getHeight(); ++i) {
         for (int j = 0; j < getWidth(); ++j) {
-            if (std::abs(get(j, i) - b.get(j, i)) > err) {
+            if (abs(get(j, i) - b.get(j, i)) > err) {
                 return false;
             }
         }

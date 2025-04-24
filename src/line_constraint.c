@@ -40,8 +40,8 @@ void calculate(
 
     const double q3_dot = state->v_theta[body];
 
-    const double cos_q3 = std::cos(q3);
-    const double sin_q3 = std::sin(q3);
+    const double cos_q3 = cos(q3);
+    const double sin_q3 = sin(q3);
 
     const double bodyX = q1 + cos_q3 * m_local_x - sin_q3 * m_local_y;
     const double bodyY = q2 + sin_q3 * m_local_x + cos_q3 * m_local_y;

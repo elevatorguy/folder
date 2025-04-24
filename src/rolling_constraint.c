@@ -1,6 +1,6 @@
 #include "rolling_constraint.h"
 
-#include <cmath>
+#include <math.h>
 
 void init_Constraint(int constraintCount, int bodyCount) {
     assert(constraintCount <= MaxConstraintCount);
@@ -50,8 +50,8 @@ void calculate(
     const double q4_dot = state->v_x[rollingBody];
     const double q5_dot = state->v_y[rollingBody];
 
-    const double cos_q3 = std::cos(q3);
-    const double sin_q3 = std::sin(q3);
+    const double cos_q3 = cos(q3);
+    const double sin_q3 = sin(q3);
 
     const double origin_x = q1 + cos_q3 * m_local_x - sin_q3 * m_local_y;
     const double origin_y = q2 + sin_q3 * m_local_x + cos_q3 * m_local_y;

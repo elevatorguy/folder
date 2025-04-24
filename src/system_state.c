@@ -47,28 +47,28 @@ void copy(const SystemState *state) {
         return;
     }
 
-    std::memcpy((void *)indexMap, (void *)state->indexMap, sizeof(int) * n_c);
+    memcpy((void *)indexMap, (void *)state->indexMap, sizeof(int) * n_c);
 
-    std::memcpy((void *)a_theta, (void *)state->a_theta, sizeof(double) * n);
-    std::memcpy((void *)v_theta, (void *)state->v_theta, sizeof(double) * n);
-    std::memcpy((void *)theta, (void *)state->theta, sizeof(double) * n);
+    memcpy((void *)a_theta, (void *)state->a_theta, sizeof(double) * n);
+    memcpy((void *)v_theta, (void *)state->v_theta, sizeof(double) * n);
+    memcpy((void *)theta, (void *)state->theta, sizeof(double) * n);
 
-    std::memcpy((void *)a_x, (void *)state->a_x, sizeof(double) * n);
-    std::memcpy((void *)a_y, (void *)state->a_y, sizeof(double) * n);
-    std::memcpy((void *)v_x, (void *)state->v_x, sizeof(double) * n);
-    std::memcpy((void *)v_y, (void *)state->v_y, sizeof(double) * n);
-    std::memcpy((void *)p_x, (void *)state->p_x, sizeof(double) * n);
-    std::memcpy((void *)p_y, (void *)state->p_y, sizeof(double) * n);
+    memcpy((void *)a_x, (void *)state->a_x, sizeof(double) * n);
+    memcpy((void *)a_y, (void *)state->a_y, sizeof(double) * n);
+    memcpy((void *)v_x, (void *)state->v_x, sizeof(double) * n);
+    memcpy((void *)v_y, (void *)state->v_y, sizeof(double) * n);
+    memcpy((void *)p_x, (void *)state->p_x, sizeof(double) * n);
+    memcpy((void *)p_y, (void *)state->p_y, sizeof(double) * n);
 
-    std::memcpy((void *)f_x, (void *)state->f_x, sizeof(double) * n);
-    std::memcpy((void *)f_y, (void *)state->f_y, sizeof(double) * n);
-    std::memcpy((void *)t, (void *)state->t, sizeof(double) * n);
+    memcpy((void *)f_x, (void *)state->f_x, sizeof(double) * n);
+    memcpy((void *)f_y, (void *)state->f_y, sizeof(double) * n);
+    memcpy((void *)t, (void *)state->t, sizeof(double) * n);
 
-    std::memcpy((void *)m, (void *)state->m, sizeof(double) * n);
+    memcpy((void *)m, (void *)state->m, sizeof(double) * n);
 
-    std::memcpy((void *)r_x, (void *)state->r_x, sizeof(double) * n_c * 2);
-    std::memcpy((void *)r_y, (void *)state->r_y, sizeof(double) * n_c * 2);
-    std::memcpy((void *)r_t, (void *)state->r_t, sizeof(double) * n_c * 2);
+    memcpy((void *)r_x, (void *)state->r_x, sizeof(double) * n_c * 2);
+    memcpy((void *)r_y, (void *)state->r_y, sizeof(double) * n_c * 2);
+    memcpy((void *)r_t, (void *)state->r_t, sizeof(double) * n_c * 2);
 }
 
 void resize(int bodyCount, int constraintCount) {
@@ -148,8 +148,8 @@ void localToWorld(
     const double y0 = p_y[body];
     const double theta = this->theta[body];
 
-    const double cos_theta = std::cos(theta);
-    const double sin_theta = std::sin(theta);
+    const double cos_theta = cos(theta);
+    const double sin_theta = sin(theta);
 
     *x_t = cos_theta * x - sin_theta * y + x0;
     *y_t = sin_theta * x + cos_theta * y + y0;

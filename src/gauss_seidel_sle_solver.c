@@ -133,8 +133,8 @@ double solveIteration(
         const double k_next_i =
             (1 / left.get(i, i)) * (right.get(0, i) - s0 - s1);
 
-        const double min_k = std::fmax(1E-3, k->get(0, i));
-        const double delta = (std::abs(k_next_i) - min_k) / min_k;
+        const double min_k = fmax(1E-3, k->get(0, i));
+        const double delta = (abs(k_next_i) - min_k) / min_k;
         maxDifference = (delta > maxDifference)
             ? delta
             : maxDifference;
@@ -170,10 +170,10 @@ double solveIteration(
 
         const double limitMin = limits.get(0, i);
         const double limitMax = limits.get(1, i);
-        const double x = std::fmax(limitMin, std::fmin(limitMax, k_next_i));
+        const double x = fmax(limitMin, fmin(limitMax, k_next_i));
 
-        const double min_k = std::fmax(1E-3, std::abs(k->get(0, i)));
-        const double delta = std::abs(x - k->get(0, i)) / min_k;
+        const double min_k = fmax(1E-3, abs(k->get(0, i)));
+        const double delta = abs(x - k->get(0, i)) / min_k;
         maxDifference = (delta > maxDifference)
             ? delta
             : maxDifference;

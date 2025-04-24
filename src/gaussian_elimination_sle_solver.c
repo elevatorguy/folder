@@ -125,7 +125,7 @@ bool solve(
     }
 
     for (int i = 0; i < m; ++i) {
-        if (std::isnan(result->get(0, i)) || std::isinf(result->get(0, i))) {
+        if (isnan(result->get(0, i)) || isinf(result->get(0, i))) {
             assert(false);
         }
     }

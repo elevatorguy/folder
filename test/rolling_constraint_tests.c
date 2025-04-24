@@ -4,7 +4,7 @@
 #include <iostream>
 
 void verify(atg_scs::SystemState *state, atg_scs::Constraint *constraint) {
-    atg_scs::Constraint::Output o0, o1;
+    Constraint::Output o0, o1;
     const int n = constraint->m_bodyCount;
     const int m = constraint->getConstraintCount();
 
@@ -12,9 +12,9 @@ void verify(atg_scs::SystemState *state, atg_scs::Constraint *constraint) {
     const double dt = 0.001;
 
     for (int i = 0; i < m; ++i) {
-        std::cerr << "Constraint " << i << "\n";
+        cerr << "Constraint " << i << "\n";
         for (int j = 0; j < n * 3; ++j) {
-            std::cerr << "q" << j + 1 << "\n";
+            cerr << "q" << j + 1 << "\n";
 
             const int q_i = j % 3;
             double *q[] = {
@@ -42,7 +42,7 @@ void verify(atg_scs::SystemState *state, atg_scs::Constraint *constraint) {
 
             for (int k = 0; k < n * 3; ++k) {
                 for (int l = 0; l < m; ++l) {
-                    std::cerr << l << ", " << k << "\n";
+                    cerr << l << ", " << k << "\n";
                     const double J_dot = (o1.J[l][k] - o0.J[l][k]) / dt;
                     EXPECT_NEAR(J_dot, (o0.J_dot[l][k] + o1.J_dot[l][k]) / 2, 1E-4);
                 }
@@ -73,9 +73,9 @@ TEST(RollingConstraintTests, RollingConstraintTest) {
     system.p_y[0] = system.p_y[1] = 0;
     system.theta[0] = system.theta[1] = 0;
 
-    std::mt19937 rng;
+    mt19937 rng;
     rng.seed(0);
-    std::uniform_real_distribution<double> realDist;
+    uniform_real_distribution<double> realDist;
 
     const double d = 0.001;
     for (int i = 0; i < 10; ++i) {
