@@ -29,7 +29,7 @@ struct RigidBody {
         int index;
 
         void reset(void);
-        double energy() const;
+        double energy(void) const;
 };
 
 void init_StaticForceGenerator(void);

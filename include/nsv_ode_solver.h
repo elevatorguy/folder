@@ -3,7 +3,7 @@
 
 #include "system_state.h"
 
-void init_OdeSolver();
+void init_OdeSolver(void);
 
 virtual void start(SystemState *initial, double dt);
 virtual bool step(SystemState *system);
