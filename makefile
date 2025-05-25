@@ -1,7 +1,7 @@
 STD := c17
-CC := clang
+CC := icx
 OPTIMIZATION-LEVEL := 2
-CXXFLAGS := -Wall -Wextra -pedantic-errors -std=$(STD) -O$(OPTIMIZATION-LEVEL) -pthread -D_GLIBCXX_USE_NANOSLEEP -fno-strict-aliasing -fsanitize=address,undefined,bounds,pointer-overflow
+CXXFLAGS := -Wall -Wextra -Qstd=$(STD) -O$(OPTIMIZATION-LEVEL) -D_GLIBCXX_USE_NANOSLEEP -fno-strict-aliasing -fsanitize=address,undefined,bounds,pointer-overflow -ferror-limit=100
 EXAMPLEFLAGS := -std=$(STD) -pthread -D_GLIBCXX_USE_NANOSLEEP -fno-strict-aliasing -fsanitize=address,undefined,bounds,pointer-overflow,leak
 
 all: note main done
